@@ -2,9 +2,28 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
+    max-width: 1600px;
 }
 
-.navbar-brand {
+.navbar-light .navbar-brand {
     font-family: 'Merienda One', cursive;
+    font-size: 2rem;
     color: #25CBB7;
+}
+
+.navbar-light .navbar-brand:hover {
+    color: #20b19f;
+}
+
+.navbar-brand img {
+	max-height: 50px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color:#573723;
+	padding: 0.75rem;
+}
+
+.nav-item:hover {
+    border-bottom: 3px solid #25CBB7;
 }
