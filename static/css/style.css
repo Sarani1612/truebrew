@@ -2,9 +2,17 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    max-width: 1600px;
+    display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
+/* Navigation bar */
 .navbar-light .navbar-brand {
     font-family: 'Merienda One', cursive;
     font-size: 2rem;
@@ -26,4 +34,25 @@ body {
 
 .nav-item:hover {
     border-bottom: 3px solid #25CBB7;
+}
+
+/* Positions main content in all views */
+.main-content {
+	margin-top: 125px;
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+.landing-page {
+	background-image: url('/static/images/home-img.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-top: 70px;
+	margin-bottom: 25px;
+	overflow: hidden;
+	position: relative;
+	height: 67vh;
+	color: #573723;
 }
