@@ -1,7 +1,6 @@
 from django.db import models
 
 
-# Create your models here.
 class Product(models.Model):
     BLACK_TEA = 'Black Tea'
     GREEN_TEA = 'Green Tea'
@@ -9,11 +8,11 @@ class Product(models.Model):
     ROOIBOS = 'Rooibos'
     MIX = 'Mix'
     TEA_CHOICES = [
-        (BLACK_TEA='Black Tea'
-        (GREEN_TEA='Green Tea'),
-        (WHITE_TEA='White Tea'),
-        (ROOIBOS='Rooibos'),
-        (MIX='Mix'),
+        (BLACK_TEA, 'Black Tea'),
+        (GREEN_TEA, 'Green Tea'),
+        (WHITE_TEA, 'White Tea'),
+        (ROOIBOS, 'Rooibos'),
+        (MIX, 'Mix'),
     ]
     title = models.CharField(max_length=50)
     category = models.CharField(
