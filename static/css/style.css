@@ -56,6 +56,18 @@ h1 {
     color: #25CBB7;
 }
 
+/* Button styling */
+.custom-btn {
+    color: #f8f9fa;
+    background-color: #32cbb7;
+    float: right;
+}
+
+.custom-btn:hover {
+    color: #f8f9fa;
+    font-weight: 600;
+}
+
 /* Landing page settings */
 .landing-page {
 	background-image: url('/static/images/home-img.jpg');
