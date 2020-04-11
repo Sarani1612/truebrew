@@ -106,7 +106,15 @@ body {
 	min-height: 80vh;
 }
 
+.forms {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
 
+form {
+    max-width: 500px;
+    margin: auto;
+}
 
 /* Footer */
 
@@ -129,4 +137,12 @@ footer p {
 footer i {
 	padding: 0 5px;
 	font-size: 2rem;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 992px) {
+    .forms {
+        padding: 50px;
+    }
 }
