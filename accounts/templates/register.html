@@ -21,7 +21,7 @@
 			<p>Your form has errors. Please try again.</p>
 			{% endif %}
 			{{ form | as_bootstrap }}
-			<button type="submit">Register</button>
+			<button type="submit" class="btn custom-btn">Register</button>
 			<p>Already have an account? <a href="{% url 'login' %}" class="green-links">Log in here.</a></p>
 		</form>
 	</div>
