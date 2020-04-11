@@ -5,17 +5,24 @@
 {% block title %}Create Account{% endblock %}
 
 {% block content %}
-<section class="login-reg">
-    <h1>Create Account</h1>
-    {% if messages %}
+<section class="row login-reg">
+    <div class="col-md-8 col-lg-4 offset-md-2 offset-lg-4 align-self-center forms">
+        <h1 class="text-center">Create Account</h1>
+        {% if messages %}
         {% for message in messages %}
         <div class="alert alert-{{message.tags}}" role="alert">
-        {{ message }}
+            {{ message }}
         </div>
         {% endfor %}
-    {% endif %}
-	<div class="col-md-6 offset-md-3 login">
-		
+        {% endif %}
+        <form method="POST" action="{% url 'registration'%}">
+            {% csrf_token %}
+            {% if form.errors %}
+            <p>Your form has errors. Please try again.</p>
+            {% endif %}
+            {{ form | as_bootstrap }}
+            <button type="submit">Register</button>
+        </form>
 	</div>
 </section>
 {% endblock %}
