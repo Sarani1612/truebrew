@@ -103,12 +103,13 @@ body {
 	background-size: cover;
 	overflow: hidden;
 	position: relative;
-	min-height: 80vh;
+	min-height: 85vh;
 }
 
 .forms {
     background-color: #f8f9fa;
     padding: 20px;
+    margin: 20px auto;
 }
 
 form {
@@ -116,6 +117,15 @@ form {
     margin: auto;
 }
 
+/* Custom styling of links on forms */
+.green-links {
+    color: #25CBB7;
+}
+
+.green-links:hover {
+    color: #20b19f;
+    text-decoration: none;
+}
 /* Footer */
 
 footer {
