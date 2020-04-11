@@ -4,7 +4,7 @@
 
 {% block content %}
 <section class="acocunt">
-    <h1>{{user.username}}'s Account</h1>
+    <h1 class="text-center">{{user.username}}'s Account</h1>
     {% if user.is_authenticated %}
 	<div>
 		<p>Username: {{ user.username }}</p>
