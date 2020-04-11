@@ -28,6 +28,10 @@ def user_logout(request):
     return redirect('home')
 
 
+def user_registration(request):
+    return render(request, 'register.html')
+
+
 @login_required
 def user_account(request):
     '''The users profile page'''
