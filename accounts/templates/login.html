@@ -7,6 +7,13 @@
 {% block content %}
 <section class="login-reg">
     <h1>Log In</h1>
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}}" role="alert">
+        {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
 	<div class="col-md-6 offset-md-3 login">
 		<form method="POST">
 			{% csrf_token %}
