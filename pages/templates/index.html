@@ -2,13 +2,34 @@
 
 {% block title %}True Brew | Home{% endblock %}
 
-
 {% block content %}
 <section class="landing-page">
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}}" role="alert">
+        {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
     <div class="landing-div">
         <div class="landing-text">
             <p>The no 1 box subscription service for tea lovers all over the world.</p>
             <p>Get premium teas delivered to your door whenever you want.</p>
+        </div>
+    </div>
+</section>
+<section class="products">
+    <div class="container">
+        <p>Our Tea</p>
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-6 col-lg-3 mb-2">
+                <div class="align-items-center justify-content-center h-100 w-100 mx-auto card-div">
+                    <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img" alt="{{ product.category }}">
+                    <a href="#" class="stretched-link">{{ product.title }}</a>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
