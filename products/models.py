@@ -23,7 +23,16 @@ class Product(models.Model):
     image = models.ImageField(upload_to='images')
     description = models.TextField()
     short_description = models.TextField()
-    price = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
         return self.title
+
+
+class Subscription(models.Model):
+    frequency = models.CharField(max_length=15)
+    description = models.TextField()
+    unit_price = models.DecimalField(max_digits=6, decimal_places=2)
+    practical_info = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.frequency
