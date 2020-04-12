@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Sarani1612/truebrew.svg?branch=master)](https://travis-ci.org/Sarani1612/truebrew)
+
 ## Table of Contents
 1. [True Brew](#true-brew)
 2. [UX](#ux)
