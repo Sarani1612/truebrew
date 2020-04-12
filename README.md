@@ -18,7 +18,7 @@
     1. [Cloning and running the project locally](#cloning-and-running-the-project-locally)
 7. [Credits](#credits)
     1. [Content and Media](#content-and-media)
-    2. [Acknowledgments](#cknowledgments)
+    2. [Acknowledgments](#acknowledgments)
 
 # True Brew
 
