@@ -181,6 +181,16 @@ footer p {
 footer i {
 	padding: 0 5px;
 	font-size: 2rem;
+    color: #573723;
+	-webkit-transition: all 0.5s ease-out;
+	-o-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
+}
+
+footer i:hover {
+	-webkit-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	transform: scale(1.5);
 }
 
 /* Media Queries */
