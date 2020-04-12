@@ -59,7 +59,7 @@ h1 {
 /* Button styling */
 .custom-btn {
     color: #f8f9fa;
-    background-color: #32cbb7;
+    background-color: #25CBB7;
     float: right;
 }
 
@@ -121,6 +121,11 @@ h1 {
 .card-title {
     text-align: center;
     font-weight: 600;
+}
+
+.info-box {
+    border: solid 2px #573723;
+    padding: 10px;
 }
 
 .login-reg {
