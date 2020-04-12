@@ -110,7 +110,13 @@ h1 {
     -moz-box-shadow: 0px 0px 10px 0px rgba(87,55,35,0.75);
     box-shadow: 0px 0px 10px 0px rgba(87,55,35,0.75);
     border-radius: 5px;
+    padding: 5px;
 	margin: 0.5rem;
+}
+
+.card-title {
+    text-align: center;
+    font-weight: 600;
 }
 
 .login-reg {
@@ -123,6 +129,7 @@ h1 {
 	min-height: 85vh;
 }
 
+/* Form styling */
 .forms {
     background-color: #f8f9fa;
     padding: 20px;
