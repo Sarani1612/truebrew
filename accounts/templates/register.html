@@ -8,19 +8,17 @@
 <section class="row login-reg">
 	<div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3 align-self-center forms">
 		<h1 class="text-center">Create Account</h1>
-		{% if messages %}
-		{% for message in messages %}
-		<div class="alert alert-{{message.tags}}" role="alert">
-			{{ message }}
-		</div>
-		{% endfor %}
-		{% endif %}
 		<form method="POST" action="{% url 'registration'%}">
 			{% csrf_token %}
-			{% if form.errors %}
-			<p>Your form has errors. Please try again.</p>
+			
+            {% if form.errors %}
+            	<div class="alert alert-danger" role="alert">
+			        Your form has errors. Please try again.
+		        </div>
 			{% endif %}
+
 			{{ form | as_bootstrap }}
+
 			<button type="submit" class="btn custom-btn">Register</button>
 			<p>Already have an account? <a href="{% url 'login' %}" class="green-links">Log in here.</a></p>
 		</form>
