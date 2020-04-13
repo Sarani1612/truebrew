@@ -19,11 +19,9 @@
                     Products
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Black Tea</a>
-                    <a class="dropdown-item" href="#">Green Tea</a>
-                    <a class="dropdown-item" href="#">White Tea</a>
-                    <a class="dropdown-item" href="">Rooibos</a>
-                    <a class="dropdown-item" href="">Mix</a>
+                    {% for product in products %}
+                    <a class="dropdown-item" href="{% url 'view_product' product.id %}">{{ product.title }}</a>
+                    {% endfor %}
                 </div>
             </li>
         </ul>
