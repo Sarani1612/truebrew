@@ -8,12 +8,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3 align-self-center">
-                <div class="align-items-center justify-content-center h-100 w-100 mx-auto card-div">
+                <div class="h-100 w-100 mx-auto card-div d-flex flex-column">
                     <h5 class="card-title">{{ product.title }}</h5>
                     <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img" alt="{{ product.category }}">
                     <p class="short-description">{{ product.description }}</p>
                     <hr>
-                    <a href="#" class="btn custom-btn">Subscribe</a>
+                    <a href="#" class="btn custom-btn align-self-center">Subscribe</a>
                 </div>
             </div>
         </div>
