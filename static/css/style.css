@@ -143,10 +143,11 @@ h1 {
 }
 
 /* Form styling */
-.forms {
+.form-wrapper {
     background-color: #f8f9fa;
     padding: 20px;
     margin: 20px auto;
+    max-width: 700px;
 }
 
 form {
