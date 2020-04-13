@@ -5,23 +5,27 @@
 {% block title %}Create Account{% endblock %}
 
 {% block content %}
-<section class="row login-reg">
-	<div class="col-md-8 col-lg-6 align-self-center form-wrapper">
-		<h1 class="text-center">Create Account</h1>
-		<form method="POST" action="{% url 'registration'%}">
-			{% csrf_token %}
-			
-            {% if form.errors %}
-            	<div class="alert alert-danger" role="alert">
-			        Your form has errors. Please try again.
-		        </div>
-			{% endif %}
+<div class="main-content login-reg">
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 mx-auto form-wrapper">
+                <h1 class="text-center">Create Account</h1>
+                <form method="POST" action="{% url 'registration'%}">
+                    {% csrf_token %}
+                    
+                    {% if form.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            Your form has errors. Please try again.
+                        </div>
+                    {% endif %}
 
-			{{ form | as_bootstrap }}
+                    {{ form | as_bootstrap }}
 
-			<button type="submit" class="btn custom-btn">Register</button>
-			<p>Already have an account? <a href="{% url 'login' %}" class="green-links">Log in here.</a></p>
-		</form>
-	</div>
-</section>
+                    <button type="submit" class="btn custom-btn">Register</button>
+                    <p>Already have an account? <a href="{% url 'login' %}" class="green-links">Log in here.</a></p>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
 {% endblock %}
