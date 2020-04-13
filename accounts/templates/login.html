@@ -1,33 +1,35 @@
 {% extends 'base.html' %}
 
-{% load bootstrap_tags %}
-
 {% block title %}Log In{% endblock %}
 
 {% block content %}
-<section class="row login-reg">
-    <div class="col-md-8 col-lg-6 align-self-center form-wrapper">
-        <h1 class="text-center">Log In</h1>
-        {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-{{message.tags}}" role="alert">
-            {{ message }}
+<div class="main-content login-reg">
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 mx-auto form-wrapper">
+                <h1 class="text-center">Log In</h1>
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{message.tags}}" role="alert">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                    <button type="submit" class="btn custom-btn">Login</button>
+                    <p>No account yet? <a href="{% url 'registration' %}" class="green-links">Create one here.</a></p>
+                </form>
+            </div>
         </div>
-        {% endfor %}
-        {% endif %}
-        <form method="POST">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" name="username">
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" name="password">
-            </div>
-            <button type="submit" class="btn custom-btn">Login</button>
-            <p>No account yet? <a href="{% url 'registration' %}" class="green-links">Create one here.</a></p>
-        </form>
-	</div>
+    </div>
 </section>
 {% endblock %}
