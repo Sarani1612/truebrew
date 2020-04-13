@@ -4,9 +4,8 @@
 
 {% block content %}
 
-
 <div class="row wrapper">
-    <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3 align-self-center card-div d-flex flex-column">
+    <div class="col-md-6 col-xl-3 align-self-center card-div d-flex flex-column">
         <h5 class="card-title">{{ product.title }}</h5>
         <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img" alt="{{ product.category }}">
         <p class="short-description">{{ product.description|linebreaksbr }}</p>
