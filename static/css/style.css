@@ -60,7 +60,7 @@ h1 {
 .custom-btn {
     color: #f8f9fa;
     background-color: #25CBB7;
-    float: right;
+    min-width: 100px;
 }
 
 .custom-btn:hover {
