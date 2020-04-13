@@ -3,59 +3,61 @@
 {% block title %}True Brew | Home{% endblock %}
 
 {% block content %}
-<section class="landing-page">
-    {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-{{message.tags}}" role="alert">
-        {{ message }}
+<div class="main-content">
+    <section class="landing-page">
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+            {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+        <div class="landing-div">
+            <div class="landing-text">
+                <p>The no 1 box subscription service for tea lovers all over the world.</p>
+                <p>Get premium teas delivered to your door whenever you want.</p>
+            </div>
         </div>
-        {% endfor %}
-    {% endif %}
-    <div class="landing-div">
-        <div class="landing-text">
-            <p>The no 1 box subscription service for tea lovers all over the world.</p>
-            <p>Get premium teas delivered to your door whenever you want.</p>
+    </section>
+    <section class="home-sections">
+        <div class="container">
+            <h1 class="text-center">Our Tea</h1>
+            <div class="row">
+                {% for product in products %}
+                <div class="col-md-6 col-lg-4 col-xl-3 mb-3">
+                    <div class="h-100 w-100 mx-auto card-div">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img" alt="{{ product.category }}">
+                        <p class="short-description">{{ product.short_description }}</p>
+                        <hr>
+                        <div class="d-flex flex-row">
+                            <a href="{% url 'view_product' product.id %}" class="btn custom-btn d-inline ml-3">Read more</a>
+                            <a href="#" class="btn custom-btn d-inline ml-auto mr-3 self-align-end">Buy</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-    </div>
-</section>
-<section class="home-sections">
-    <div class="container">
-        <h1 class="text-center">Our Tea</h1>
-        <div class="row">
-            {% for product in products %}
-            <div class="col-md-6 col-lg-4 col-xl-3 mb-3">
-                <div class="h-100 w-100 mx-auto card-div">
-                    <h5 class="card-title">{{ product.title }}</h5>
-                    <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img" alt="{{ product.category }}">
-                    <p class="short-description">{{ product.short_description }}</p>
-                    <hr>
-                    <div class="d-flex flex-row">
-                        <a href="{% url 'view_product' product.id %}" class="btn custom-btn d-inline ml-3">Read more</a>
-                        <a href="#" class="btn custom-btn d-inline ml-auto mr-3 self-align-end">Buy</a>
+    </section>
+    <section class="home-sections">
+        <div class="container">
+            <h1 class="text-center">About Us</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <h5 class="card-title">Box Subscription Service</h5>
+                        <p>Here is some text about our services</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <h5 class="card-title">About True Brew</h5>
+                        <p>Here is some info about us</p>
                     </div>
                 </div>
             </div>
-            {% endfor %}
         </div>
-    </div>
-</section>
-<section class="home-sections">
-    <div class="container">
-        <h1 class="text-center">About Us</h1>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="info-box">
-                    <h5 class="card-title">Box Subscription Service</h5>
-                    <p>Here is some text about our services</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="info-box">
-                    <h5 class="card-title">About True Brew</h5>
-                    <p>Here is some info about us</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+</div>
 {% endblock %}
