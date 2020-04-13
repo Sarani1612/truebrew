@@ -23,13 +23,16 @@
         <h1 class="text-center">Our Tea</h1>
         <div class="row">
             {% for product in products %}
-            <div class="col-md-6 col-lg-3 mb-3">
-                <div class="align-items-center justify-content-center h-100 w-100 mx-auto card-div">
+            <div class="col-md-6 col-lg-4 col-xl-3 mb-3">
+                <div class="h-100 w-100 mx-auto card-div">
                     <h5 class="card-title">{{ product.title }}</h5>
                     <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img" alt="{{ product.category }}">
                     <p class="short-description">{{ product.short_description }}</p>
                     <hr>
-                    <a href="{% url 'view_product' product.id %}" class="btn custom-btn">Read more</a>
+                    <div class="d-flex flex-row">
+                        <a href="{% url 'view_product' product.id %}" class="btn custom-btn d-inline ml-3">Read more</a>
+                        <a href="#" class="btn custom-btn d-inline ml-auto mr-3 self-align-end">Get Box</a>
+                    </div>
                 </div>
             </div>
             {% endfor %}
