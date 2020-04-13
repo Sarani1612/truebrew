@@ -134,6 +134,11 @@ h1 {
     padding: 10px;
 }
 
+.unit-price {
+    font-size: 1.5rem;
+    color: #25CBB7;
+}
+
 /* Background for login and registration pages */
 .login-reg {
     background-image: url('/static/images/log-reg-bg.jpg');
