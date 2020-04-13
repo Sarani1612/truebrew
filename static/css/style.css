@@ -54,6 +54,7 @@ body {
 
 h1 {
     color: #25CBB7;
+    padding: 10px;
 }
 
 /* Button styling */
@@ -204,7 +205,6 @@ footer i:hover {
 
 @media only screen and (min-width: 768px) {
     .tea-card {
-        min-width: 500px;
         padding: 25px;
     }
 }
