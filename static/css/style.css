@@ -129,13 +129,10 @@ h1 {
 }
 
 /* Product View */
-.wrapper {
-    min-height: 80vh;
-}
-
 .tea-card {
     padding: 10px;
 }
+
 /* Background for login and registration pages */
 .login-reg {
     background-image: url('/static/images/log-reg-bg.jpg');
@@ -144,6 +141,7 @@ h1 {
 	background-size: cover;
 	overflow: hidden;
 	position: relative;
+    min-height: 85vh;
 }
 
 /* Form styling */
