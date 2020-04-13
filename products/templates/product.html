@@ -10,7 +10,7 @@
                 <div class="card-div tea-card">
                     <h1 class="text-center">{{ product.title }}</h1>
                     <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img" alt="{{ product.category }}">
-                    <p class="short-description">{{ product.description|linebreaksbr }}</p>
+                    <p>{{ product.description|linebreaksbr }}</p>
                 </div>
             </div>
         </div>
@@ -22,12 +22,12 @@
                 {% for sub in subscriptions %}
                 <div class="col-md-4 mb-3">
                     <div class="h-100 w-100 mx-auto card-div">
-                        <h5 class="card-title">{{ sub.frequency }}</h5>
-                        <p class="short-description">{{ sub.description|linebreaksbr }}</p>
-                        <p class="short-description">{{ sub.unit_price }} per box</p>
-                        <p>{{ practical_info }}</p>
-                        <hr>
+                        <h5 class="card-title">{{ sub.frequency|upper }}</h5>
+                        <p class="text-center"><span class="unit-price">{{ sub.unit_price }}</span> per box</p>
+                        <p>{{ sub.description|linebreaksbr }}</p>
                         <a href="#" class="btn custom-btn align-self-center">Subscribe</a>
+                        <hr>
+                        <p><small>{{ sub.practical_info }}</small></p>
                     </div>
                 </div>
                 {% endfor %}

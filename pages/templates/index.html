@@ -28,7 +28,7 @@
                     <div class="h-100 w-100 mx-auto card-div">
                         <h5 class="card-title">{{ product.title }}</h5>
                         <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img" alt="{{ product.category }}">
-                        <p class="short-description">{{ product.short_description }}</p>
+                        <p>{{ product.short_description }}</p>
                         <hr>
                         <div class="d-flex flex-row">
                             <a href="{% url 'view_product' product.id %}" class="btn custom-btn d-inline ml-3">Read more</a>
