@@ -15,7 +15,7 @@ body {
 /* Navigation bar */
 .navbar-light .navbar-brand {
     font-family: 'Merienda One', cursive;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #25CBB7;
 }
 
@@ -67,6 +67,10 @@ h1 {
 .custom-btn:hover {
     color: #f8f9fa;
     font-weight: 600;
+}
+
+.info-btn {
+    background-color: #573723;
 }
 
 /* Landing page settings */
@@ -210,6 +214,9 @@ footer i:hover {
 @media only screen and (min-width: 768px) {
     .tea-card {
         padding: 25px;
+    }
+    .navbar-light .navbar-brand {
+    font-size: 2rem;
     }
 }
 
