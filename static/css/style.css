@@ -211,6 +211,15 @@ footer i:hover {
 
 /* Media Queries */
 
+@media only screen and (max-width: 767px) {
+    .nav-fa-link {
+        padding: 5px;
+    }
+    .nav-fa-icon {
+        font-size: 24px;
+    }
+}
+
 @media only screen and (min-width: 768px) {
     .tea-card {
         padding: 25px;
