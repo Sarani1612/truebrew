@@ -19,8 +19,9 @@
 6. [Deployment](#deployment)
     1. [Cloning and running the project locally](#cloning-and-running-the-project-locally)
 7. [Credits](#credits)
-    1. [Content and Media](#content-and-media)
-    2. [Acknowledgments](#acknowledgments)
+    1. [Code](#code)
+    2. [Content and Media](#content-and-media)
+    3. [Acknowledgments](#acknowledgments)
 
 # True Brew
 
@@ -84,6 +85,9 @@ Follow these steps if you wish to run the project locally:
 These instructions and more info can be found at [this GitHub Help Page](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 
 ## Credits
+
+### Code:
+- [This article by Vitor Freitas](https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone) was used to help me extend the User model
 
 ### Content and Media
 - The texts about the different kinds of tea were adapted from [Republic of Tea](https://www.republicoftea.com/)
