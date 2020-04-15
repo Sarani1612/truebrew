@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 
 class UserRegistrationForm(UserCreationForm):
+    '''Form to create a user account'''
     email = forms.EmailField()
 
     class Meta:
@@ -14,12 +15,18 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class EditUserForm(UserChangeForm):
+    '''Ensures 'password' does not show up in the form,
+    as it cannot be changed there '''
+    password = None
+
     class Meta:
         model = User
         fields = ['username', 'email', 'first_name', 'last_name']
 
 
 class EditUserInfoForm(ModelForm):
+    ''' Form to be used by a user in order to edit their account details '''
     class Meta:
         model = UserInfo
-        fields = ['street_address1', 'street_address2', 'town_or_city', 'postcode', 'county', 'country', 'phone_number']
+        fields = ['street_address1', 'street_address2', 'town_or_city',
+                  'postcode', 'county', 'country', 'phone_number']
