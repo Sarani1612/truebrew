@@ -6,6 +6,13 @@
 <div class="main-content">
     <div class="account container mt-2">
         <h1 class="text-center">{{user.username}}'s Account</h1>
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+            {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
         <div class="row">
             <div class="col-md-6">
                 <h2 class="text-center">Your account details</h2>
