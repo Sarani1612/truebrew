@@ -15,8 +15,11 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class EditUserForm(UserChangeForm):
-    '''Ensures 'password' does not show up in the form,
-    as it cannot be changed there '''
+    '''
+    Ensures 'password' does not show up in the form,
+    as it cannot be changed there.
+    Solution found at https://stackoverflow.com/questions/16337349/exclude-username-or-password-from-userchangeform-in-django-auth
+    '''
     password = None
 
     class Meta:
