@@ -180,6 +180,27 @@ form {
     text-decoration: none;
 }
 
+
+/* Accounts app styling*/
+/* Table styling */
+
+table, td {
+  border: 1px solid #573723;
+}
+
+td {
+    padding: 5px;
+}
+
+caption {
+    caption-side: top;
+    padding: 0;
+}
+
+table i {
+    font-size: 10px;
+}
+
 /* Footer */
 
 footer {
