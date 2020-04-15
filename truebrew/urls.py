@@ -17,7 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from pages.views import home_page
 from accounts import urls as accounts_urls
-from products.views import view_product
+from cart import urls as cart_urls
+from products import urls as products_urls
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,5 +27,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_page, name="home"),
     path('accounts/', include(accounts_urls)),
-    path('products/<int:pk>/', view_product, name="view_product"),
+    path('products/', include(products_urls)),
+    path('cart/', include(cart_urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
