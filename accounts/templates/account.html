@@ -18,67 +18,49 @@
                 <h2 class="text-center">Your account details</h2>
                 <p>Here you can see and change the info we have on file for you.</p>
                 <table>
-                    <caption>Click on the pen icon to edit your info.</caption>
+                    <caption>
+                        Click on the pen icon to edit your info.
+                        <a href="{% url 'edit_account' %}"><i class="fas fa-pen"></i></a>
+                    </caption>
                     <tr>
                         <td>Username:</td>
-                        <td>{{ user.username }}
-                            <a href="{% url 'edit_account' %}"><i class="fas fa-pen"></i>
-                            </a>
-                        </td>
+                        <td>{{ user.username }}</td>
                     </tr>
                     <tr>
                         <td>Email Address:</td>
-                        <td>{{ user.email }} 
-                            <a href="{% url 'edit_account' %}"><i class="fas fa-pen"></i></a>
-                        </td>
+                        <td>{{ user.email }}</td>
                     </tr>
                     <tr>
                         <td>Name:</td>
-                        <td>{{ user.first_name }} {{ user.last_name }} 
-                            <a href="{% url 'edit_account' %}"><i class="fas fa-pen"></i></a>
-                        </td>
+                        <td>{{ user.first_name }} {{ user.last_name }}</td>
                     </tr>
                     <tr>
                         <td>Street Address:</td>
-                        <td>{{ user.userinfo.street_address1 }} 
-                            <a href="{% url 'edit_account' %}"><i class="fas fa-pen"></i></a>
-                        </td>
+                        <td>{{ user.userinfo.street_address1 }}</td>
                     </tr>
                     <tr>
                         <td>Street Address line 2:</td>
-                        <td>{{ user.userinfo.street_address2 }} 
-                            <a href="{% url 'edit_account' %}"><i class="fas fa-pen"></i></a>
-                        </td>
+                        <td>{{ user.userinfo.street_address2 }}</td>
                     </tr>
                     <tr>
                         <td>Town/City:</td>
-                        <td>{{ user.userinfo.town_or_city }} 
-                            <a href="{% url 'edit_account' %}"><i class="fas fa-pen"></i></a>
-                        </td>
+                        <td>{{ user.userinfo.town_or_city }}</td>
                     </tr>
                     <tr>
                         <td>Postcode:</td>
-                        <td>{{ user.userinfo.postcode }} 
-                            <a href="{% url 'edit_account' %}"><i class="fas fa-pen"></i></a>
-                        </td>
+                        <td>{{ user.userinfo.postcode }}</td>
                     </tr>
                     <tr>
                         <td>County:</td>
-                        <td>{{ user.userinfo.county }} 
-                            <a href="{% url 'edit_account' %}"><i class="fas fa-pen"></i></a>
-                        </td>
+                        <td>{{ user.userinfo.county }}</td>
                     </tr>
                     <tr>
                         <td>Country:</td>
-                        <td>{{ user.userinfo.country }} 
-                            <a href="{% url 'edit_account' %}"><i class="fas fa-pen"></i></a>
-                        </td>
+                        <td>{{ user.userinfo.country }}</td>
                     </tr>
                     <tr>
                         <td>Phone Number:</td>
-                        <td>{{ user.userinfo.phone_number}} 
-                            <a href="{% url 'edit_account' %}"><i class="fas fa-pen"></i></a>
-                        </td>
+                        <td>{{ user.userinfo.phone_number}}</td>
                     </tr>
                 </table>
             </div>

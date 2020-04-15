@@ -19,7 +19,8 @@ body {
     color: #25CBB7;
 }
 
-.navbar-light .navbar-brand:hover {
+.navbar-light .navbar-brand:hover,
+table a:hover {
     color: #20b19f;
 }
 
@@ -141,7 +142,8 @@ h1 {
     padding: 10px;
 }
 
-.unit-price {
+.unit-price,
+table a {
     font-size: 1.5rem;
     color: #25CBB7;
 }
@@ -195,10 +197,6 @@ td {
 caption {
     caption-side: top;
     padding: 0;
-}
-
-table i {
-    font-size: 10px;
 }
 
 /* Footer */
