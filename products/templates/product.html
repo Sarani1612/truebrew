@@ -25,7 +25,15 @@
                         <h5 class="card-title">{{ sub.frequency|upper }}</h5>
                         <p class="text-center"><span class="unit-price"><i class="fas fa-euro-sign"></i>{{ sub.unit_price }}</span> per box</p>
                         <p>{{ sub.description|linebreaksbr }}</p>
-                        <a href="#" class="btn custom-btn align-self-center">Subscribe</a>
+						<form method="POST" action="{% url 'add_to_cart' sub.id %}">
+							{% csrf_token %}
+							<div class="input-group w-50 mx-auto">
+								<input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Qty">
+								<div class="input-group-append">
+									<button class="btn custom-btn align-self-center" type="submit">Subscribe</button>
+								</div>
+							</div>
+						</form>
                         <hr>
                         <p><small>{{ sub.practical_info }}</small></p>
                     </div>
