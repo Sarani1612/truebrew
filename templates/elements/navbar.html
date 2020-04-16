@@ -9,10 +9,10 @@
     <!-- Account and cart icon links only shown on small screens -->
     <ul class="navbar-nav d-md-none ml-auto navbar-icons d-flex flex-row">
         <li class="nav-item">
-            <a class="nav-link nav-fa-link" href="#"><i class="fas fa-2x fa-user nav-fa-icon"></i></a>
+            <a class="nav-link nav-fa-link" href="{% url 'account' %}"><i class="fas fa-2x fa-user nav-fa-icon"></i></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link nav-fa-link" href="#"><i class="fas fa-2x fa-shopping-cart nav-fa-icon"></i></a>
+            <a class="nav-link nav-fa-link" href="{% url 'cart' %}"><i class="fas fa-2x fa-shopping-cart nav-fa-icon"></i></a>
         </li>
     </ul>
 
@@ -59,7 +59,7 @@
             </li>
             {% endif %}
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{% url 'cart' %}" class="nav-link">
                     <i class="fas fa-2x fa-shopping-cart"></i>
                     {% if product_count > 0 %}
                     <label class="badge badge-pill badge-success">{{ product_count }}</label>
