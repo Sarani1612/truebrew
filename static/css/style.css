@@ -77,7 +77,7 @@ h1 {
     background-color: #88a766;
 }
 
-.info-btn {
+.info-btn, .info-btn:hover {
     background-color: #573723;
 }
 
