@@ -8,10 +8,12 @@ products = Product.objects.all()
 
 # Create your views here.
 def view_cart(request):
+    ''' renders the cart template '''
     return render(request, 'cart.html', {'products': products})
 
 
 def add_to_cart(request, id):
+    ''' adds a subscription and the quantity chosen to the cart '''
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
 
@@ -25,6 +27,7 @@ def add_to_cart(request, id):
 
 
 def adjust_quantity(request, id):
+    ''' adjusts the number of a given subscription in the cart '''
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
 
@@ -38,6 +41,7 @@ def adjust_quantity(request, id):
 
 
 def delete_subscription(request, id):
+    ''' removes a subscription completely from the cart '''
     cart = request.session.get('cart', {})
 
     cart.pop(str(id))
