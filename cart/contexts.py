@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from products.models import Product, Subscription
+from products.models import Subscription
 
 
 def cart_contents(request):
@@ -7,16 +7,23 @@ def cart_contents(request):
     cart = request.session.get('cart', {})
 
     cart_items = []
-    total = 0
-    product_count = 0
+    subtotal = 0
+    subscription_count = 0
 
     for id, quantity in cart.items():
-        product = get_object_or_404(Subscription, pk=id)
-        total += quantity * product.unit_price
-        product_count += quantity
-        cart_items.append({'id': id, 'quantity': quantity, 'product': product})
+        subscription = get_object_or_404(Subscription, pk=id)
+        subscription_total = quantity * subscription.unit_price
+        subtotal += subscription_total
+        subscription_count += quantity
+        cart_items.append({
+            'id': id,
+            'quantity': quantity,
+            'subscription': subscription,
+            'subscription_total': subscription_total
+            })
 
     return {
         'cart_items': cart_items,
-        'total': total,
-        'product_count': product_count}
+        'subtotal': subtotal,
+        'subscription_count': subscription_count
+        }
