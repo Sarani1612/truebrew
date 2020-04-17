@@ -7,47 +7,45 @@
 <div class="main-content">
 	<div class="account container mt-2">
 		<h1 class="text-center">Cart</h1>
-		<div class="row">
-			{% for item in cart_items %}
-			<div class="col-6">
-				<p>{{ item.product.frequency }} - {{ item.product.product}}</p>
-			</div>
-			<div class="col-2">
-				<p>{{ item.product.unit_price }} / box</p>
-			</div>
-			<div class="col-4">
-				<form class="form-inline" method="POST" action="#">
-					{% csrf_token %}
-					<label for="quantity" class="sr-only">New Qty</label>
-					<div class="input-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text">Qty</span>
-						</div>
-						<input name="quantity" type="number" min="0" max="999" class="form-control">
-						<div class="input-group-append">
-							<span class="input-group-text">{{ item.quantity }}</span>
-						</div>
-					</div>
-					<button class="btn custom-btn" type="submit">Amend</button>
-				</form>
-			</div>
-			{% endfor %}
-		</div>
-        <div class="row">
-            <div class="col-8">
-                <p>Total:</p>
-            </div>
-            <div class="col-4">
-                <p><i class="fas fa-euro-sign"></i>{{ total }}</p>
-            </div>
-        </div>
         <div class="row">
             <div class="col-12">
-                <a href="#" class="btn custom-btn align-self-end"
-                    role="button">Checkout</a>
+                <table class="w-100">
+                    <tr>
+                        <th>Subscription</th>
+                        <th>price per box</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                    {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item.subscription.frequency }} - {{ item.subscription.product}}</td>
+                        <td>{{ item.subscription.unit_price }} / box</td>
+                        <td>
+                            <form class="form-inline" method="POST" action="{% url 'adjust_quantity' item.id %}">
+                                {% csrf_token %}
+                                <input name="quantity" type="number" min="0" max="999" class="form-control" value="{{ item.quantity }}">
+                                <button class="btn custom-btn info-btn" type="submit">Amend</button>
+                            </form>
+                        </td>
+                        <td>{{ item.subscription_total }}</td>
+                        <td class="no-border"><i class="fas fa-trash-alt"></i></td>
+                    </tr>
+                    {% endfor %}
+                    <tr class="font-weight-bold">
+                        <td colspan="3">SUBTOTAL</td>
+                        <td><i class="fas fa-euro-sign"></i>{{ subtotal }}</td>
+                    </tr>
+                    <tr>
+                        <td class="no-border" colspan="2">
+                            <a href="#" class="btn custom-btn" role="button">Back to shopping</a>
+                        </td>
+                        <td class="no-border text-right" colspan="2">
+                            <a href="#" class="btn custom-btn" role="button">Checkout</a>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-        
 	</div>
 </div>
 {% endblock %}
