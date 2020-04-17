@@ -28,7 +28,7 @@
                             </form>
                         </td>
                         <td>{{ item.subscription_total }}</td>
-                        <td class="no-border"><i class="fas fa-trash-alt"></i></td>
+                        <td class="no-border"> <a href="{% url 'delete_subscription' item.id %}"><i class="fas fa-trash-alt"></i></a></td>
                     </tr>
                     {% endfor %}
                     <tr class="font-weight-bold">
