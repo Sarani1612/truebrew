@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from products.models import Product
 
 
@@ -47,4 +48,5 @@ def delete_subscription(request, id):
     cart.pop(str(id))
 
     request.session['cart'] = cart
+    messages.success(request, 'The subscription was removed from your cart.')
     return redirect('cart')
