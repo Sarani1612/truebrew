@@ -22,12 +22,12 @@ body {
 .navbar-light .navbar-brand {
     font-family: 'Merienda One', cursive;
     font-size: 1.5rem;
-    color: #25CBB7;
+    color: #a3c77b;
 }
 
 .navbar-light .navbar-brand:hover,
 table a:hover {
-    color: #20b19f;
+    color: #88a766;
 }
 
 .navbar-brand img {
@@ -40,7 +40,7 @@ table a:hover {
 }
 
 .nav-item:hover {
-    border-bottom: 3px solid #25CBB7;
+    border-bottom: 3px solid #a3c77b;
 }
 
 /* Positions main content in all views */
@@ -61,19 +61,20 @@ table a:hover {
 
 /* Custom heading styling */
 h1 {
-    color: #25CBB7;
+    color: #a3c77b;
     padding: 10px;
 }
 
 /* Button styling */
 .custom-btn {
     color: #f8f9fa;
-    background-color: #25CBB7;
+    background-color: #a3c77b;
 }
 
 .custom-btn:hover {
     color: #f8f9fa;
     font-weight: 600;
+    background-color: #88a766;
 }
 
 .info-btn {
@@ -150,7 +151,7 @@ h1 {
 .unit-price,
 table a {
     font-size: 1.5rem;
-    color: #25CBB7;
+    color: #a3c77b;
 }
 
 /* Background for login and registration pages */
@@ -178,12 +179,12 @@ form {
 
 /* Custom styling of links on forms */
 .green-links {
-    color: #25CBB7;
+    color: #a3c77b;
     font-weight: 600;
 }
 
 .green-links:hover {
-    color: #20b19f;
+    color: #88a766;
     text-decoration: none;
 }
 
@@ -211,7 +212,7 @@ caption {
 /* Footer */
 
 footer {
-	background-color: #25CBB7;
+	background-color: #a3c77b;
 	color: #573723;
 	min-height: 60px;
 	padding: 2%;
