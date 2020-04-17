@@ -69,7 +69,6 @@ h1 {
 .custom-btn {
     color: #f8f9fa;
     background-color: #25CBB7;
-    min-width: 100px;
 }
 
 .custom-btn:hover {
@@ -189,15 +188,19 @@ form {
 }
 
 
-/* Accounts app styling*/
-/* Table styling */
 
-table, td {
+/* Table styling for accounts and cart apps */
+
+th, td {
   border: 1px solid #573723;
 }
 
-td {
+td, th {
     padding: 5px;
+}
+
+.no-border {
+    border: none;
 }
 
 caption {
