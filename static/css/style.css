@@ -13,6 +13,12 @@ body {
 }
 
 /* Navigation bar */
+.nav-custom {
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(87,55,35,0.5);
+    -moz-box-shadow: 0px 5px 10px 0px rgba(87,55,35,0.5);
+    box-shadow: 0px 5px 10px 0px rgba(87,55,35,0.5);
+}
+
 .navbar-light .navbar-brand {
     font-family: 'Merienda One', cursive;
     font-size: 1.5rem;
