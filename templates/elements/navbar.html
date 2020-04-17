@@ -12,7 +12,12 @@
             <a class="nav-link nav-fa-link" href="{% url 'account' %}"><i class="fas fa-2x fa-user nav-fa-icon"></i></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link nav-fa-link" href="{% url 'cart' %}"><i class="fas fa-2x fa-shopping-cart nav-fa-icon"></i></a>
+            <a class="nav-link nav-fa-link" href="{% url 'cart' %}">
+                <i class="fas fa-2x fa-shopping-cart nav-fa-icon"></i>
+                {% if subscription_count > 0 %}
+                <label class="badge badge-pill badge-success">{{ subscription_count }}</label>
+                {% endif %}
+            </a>
         </li>
     </ul>
 
@@ -27,9 +32,10 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    Products
-                </a>
+                    Teas</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{% url 'all_products' %}">All Teas</a>
+                    <hr>
                     {% for product in products %}
                     <a class="dropdown-item" href="{% url 'view_product' product.id %}">{{ product.title }}</a>
                     {% endfor %}
