@@ -28,7 +28,7 @@
 						<form method="POST" action="{% url 'add_to_cart' sub.id %}">
 							{% csrf_token %}
 							<div class="input-group w-50 mx-auto">
-								<input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Qty">
+								<input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Qty" value="1" required>
 								<div class="input-group-append">
 									<button class="btn custom-btn align-self-center" type="submit">Subscribe</button>
 								</div>
