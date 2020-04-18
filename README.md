@@ -93,5 +93,6 @@ These instructions and more info can be found at [this GitHub Help Page](https:/
 - The texts about the different kinds of tea were adapted from [Republic of Tea](https://www.republicoftea.com/)
 
 ### Acknowledgments
+- Thank you to Xavier at the Code Institute for pointing me in the right direction with how to relate the Product and Subscription models.
 
 *This website is for educational purposes only. It was created as part of the Code Institute Full Stack Developer course.*
