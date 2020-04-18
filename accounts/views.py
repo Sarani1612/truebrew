@@ -71,9 +71,9 @@ def edit_account(request):
     else:
         user_form = EditUserForm(instance=request.user)
         user_info_form = EditUserInfoForm(instance=request.user.userinfo)
-    context = {
-        'products': products,
-        'user_form': user_form,
-        'user_info_form': user_info_form
-        }
-    return render(request, 'editaccount.html', context)
+        context = {
+            'products': products,
+            'user_form': user_form,
+            'user_info_form': user_info_form
+            }
+        return render(request, 'editaccount.html', context)
