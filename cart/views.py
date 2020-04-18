@@ -19,7 +19,7 @@ def add_to_cart(request, id):
     cart = request.session.get('cart', {})
 
     if id in cart:
-        cart[id] = int(cart[id]) + quantity
+        cart[id] = cart[id] + quantity
     else:
         cart[id] = cart.get(id, quantity)
 
@@ -33,9 +33,9 @@ def adjust_quantity(request, id):
     cart = request.session.get('cart', {})
 
     if quantity > 0:
-        cart[str(id)] = quantity
+        cart[id] = quantity
     else:
-        cart.pop(str(id))
+        cart.pop(id)
 
     request.session['cart'] = cart
     return redirect('cart')
@@ -45,7 +45,7 @@ def delete_subscription(request, id):
     ''' removes a subscription completely from the cart '''
     cart = request.session.get('cart', {})
 
-    cart.pop(str(id))
+    cart.pop(id)
 
     request.session['cart'] = cart
     messages.success(request, 'The subscription was removed from your cart.')
