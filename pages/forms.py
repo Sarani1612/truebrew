@@ -12,3 +12,9 @@ class ContactMessageForm(forms.ModelForm):
         model = ContactMessage
         fields = ['user', 'email', 'title', 'message_body']
         widgets = {'user': forms.HiddenInput()}
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].label = 'Email Address:'
+        self.fields['title'].label = 'Subject Line:'
+        self.fields['message_body'].label = 'Message:'
