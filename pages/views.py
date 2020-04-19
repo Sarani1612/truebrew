@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.conf import settings
 from products.models import Product
 from .forms import ContactMessageForm
 
@@ -28,7 +29,8 @@ def contact_page(request):
         contact_form = ContactMessageForm()
     context = {
         'products': products,
-        'contact_form': contact_form
+        'contact_form': contact_form,
+        'emailjs_user': settings.EMAILJS_USER
     }
     return render(request, 'contact.html', context)
 
@@ -38,6 +40,7 @@ def send_message(request):
     saves the message to the ContactMessage database
     '''
     contact_form = ContactMessageForm(request.POST)
+
     if contact_form.is_valid():
         contact_form.save()
         messages.success(request, 'Your message has been sent!')
