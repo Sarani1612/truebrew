@@ -9,11 +9,11 @@
     <!-- Account and cart icon links only shown on small screens -->
     <ul class="navbar-nav d-md-none ml-auto navbar-icons d-flex flex-row">
         <li class="nav-item">
-            <a class="nav-link nav-fa-link" href="{% url 'account' %}"><i class="fas fa-2x fa-user nav-fa-icon"></i></a>
+            <a class="nav-link nav-fa-link" href="{% url 'account' %}"><i class="fas fa-user nav-fa-icon"></i></a>
         </li>
         <li class="nav-item">
             <a class="nav-link nav-fa-link" href="{% url 'cart' %}">
-                <i class="fas fa-2x fa-shopping-cart nav-fa-icon"></i>
+                <i class="fas fa-shopping-cart nav-fa-icon"></i>
                 {% if subscription_count > 0 %}
                 <label class="badge badge-pill badge-success">{{ subscription_count }}</label>
                 {% endif %}
@@ -24,7 +24,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse navbar-links-custom" id="navbarNav">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
@@ -51,22 +51,22 @@
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'account' %}">Account</a>
+                <a class="nav-link" href="{% url 'account' %}"><i class="fas fa-user"></i> Account</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                <a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </li>
             {% else %}
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'registration' %}">Register</a>
+                <a class="nav-link" href="{% url 'registration' %}"><i class="fas fa-user-plus"></i> Register</a>
             </li>
             {% endif %}
             <li class="nav-item">
                 <a href="{% url 'cart' %}" class="nav-link">
-                    <i class="fas fa-2x fa-shopping-cart"></i>
+                    <i class="fas fa-shopping-cart"></i>
                     {% if subscription_count > 0 %}
                     <label class="badge badge-pill badge-success">{{ subscription_count }}</label>
                     {% endif %}
