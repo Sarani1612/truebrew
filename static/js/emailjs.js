@@ -4,26 +4,30 @@ $(document).ready(function () {
 
     function sendMessage() {
 
-        const formData = {
-            'user': contactForm.user.value,
-            'email': contactForm.email.value,
-            'subject': contactForm.title.value,
-            'message': contactForm.message_body.value
+        var data = {
+            service_id: 'gmail',
+            template_id: 'TrueBrew',
+            user_id: user,
+            template_params: {
+                'user': contactForm.user.value,
+                'email': contactForm.email.value,
+                'subject': contactForm.title.value,
+                'message': contactForm.message_body.value
+            }
         };
 
-        emailjs.send("gmail", "TrueBrew", formData, user)
-        .then(
-            function(response) {
-                alert("Success!", response);
-                console.log("Success!", response);
-            },
-        // Alerts the user if form failed to send
-        function(error) {
-            alert("Form failed to submit. \r\n Response:\n " + JSON.stringify(err));
-            console.log("Failed", error);
+        $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json'
+        }).done(function () {
+            alert('Your message was sent');
+            console.log('Success');
+        }).fail(function (error) {
+            alert('Oops... ' + JSON.stringify(error));
+            console.log('Oops...');
         });
-        
-        return false;
+
     }
 
     contactForm.addEventListener('submit', sendMessage);
