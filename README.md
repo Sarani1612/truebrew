@@ -113,6 +113,10 @@ These instructions and more info can be found at [this GitHub Help Page](https:/
 
 ### Content and Media
 - The texts about the different kinds of tea were adapted from [Republic of Tea](https://www.republicoftea.com/)
+- The images for the background and the mixed tea section are free images from [Pixabay](https://pixabay.com/):
+  - Background photo from  [dungthuyvunguyen](https://pixabay.com/users/dungthuyvunguyen-5499796/)
+  - Mixed teas photo from [gate74](https://pixabay.com/users/gate74-5942741/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2519551)
+- The other photos of the different tea types are from [Nordic Tea](https://nordic-tea.dk/) (For educational use only. No copyright infringement intended.)
 
 ### Acknowledgments
 - Thank you to Xavier at the Code Institute for pointing me in the right direction with how to relate the Product and Subscription models.
