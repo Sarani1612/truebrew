@@ -3,4 +3,5 @@
 .theia
 __pycache__
 env.py
+media/
 db.sqlite3
