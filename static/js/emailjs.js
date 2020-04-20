@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    const contactForm = document.querySelector('#contact-form');
+    const contactForm = document.getElementById('contact-form');
 
     function sendMessage() {
 
@@ -27,6 +27,8 @@ $(document).ready(function () {
             alert('Oops... ' + JSON.stringify(error));
             console.log('Oops...');
         });
+
+        return false;
 
     }
 
