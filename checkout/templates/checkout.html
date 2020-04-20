@@ -45,7 +45,9 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-6">
-                    
+                    {% csrf_token %}
+
+                    {{ order_form | as_bootstrap }}
                 </div>
         
                 <div class="form-group col-md-6">
