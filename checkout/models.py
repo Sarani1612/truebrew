@@ -16,6 +16,7 @@ class Order(models.Model):
     county = models.CharField(max_length=40, blank=True)
     postcode = models.CharField(max_length=20, blank=True)
     country = models.CharField(max_length=40, blank=False)
+    email = models.EmailField()
     phone_number = models.CharField(max_length=20, blank=False)
     date = models.DateField()
 
