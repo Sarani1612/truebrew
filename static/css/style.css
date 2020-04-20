@@ -177,6 +177,10 @@ form {
     margin: auto;
 }
 
+#payment-form {
+    max-width: 100%;
+}
+
 /* Custom styling of links on forms */
 .green-links {
     color: #a3c77b;
