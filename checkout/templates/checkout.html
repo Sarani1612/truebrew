@@ -37,10 +37,12 @@
             </div>
             <div class="form-group col-md-6">
                 <h2 class="text-center">Payment Details</h2>
-                <form role="form" method="POST" id="subscription-form" action="#">
+                <form role="form" method="POST" id="payment-form" action="#">
                     {% csrf_token %}
                     {{ order_form | as_bootstrap }}
-                
+                    <label for="card-element">
+                    Credit or debit card
+                    </label>
                     <div id="card-element" class="MyCardElement">
                     </div>
 
