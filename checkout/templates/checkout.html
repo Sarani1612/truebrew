@@ -18,6 +18,22 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="text-center">Order Summary</h2>
+                <table class="w-75 mx-auto">
+                    <tr>
+                        <th>Subscription</th>
+                        <th>price per box</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                    {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item.subscription.frequency }} - {{ item.subscription.product}}</td>
+                        <td>{{ item.subscription.unit_price }} / box</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.subscription_total }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
             </div>
         </div>
         <h2 class="text-center">Payment Details</h2>
