@@ -69,6 +69,7 @@ h1 {
 .custom-btn {
     color: #f8f9fa;
     background-color: #a3c77b;
+    margin-left: auto;
 }
 
 .custom-btn:hover {
@@ -175,6 +176,8 @@ table a {
 form {
     max-width: 500px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Custom styling of links on forms */
