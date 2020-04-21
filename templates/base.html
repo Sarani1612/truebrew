@@ -33,13 +33,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha256-oKpAiD7qu3bXrWRVxnXLV1h7FlNV+p5YJBIr8LOCFYw=" crossorigin="anonymous"></script>
 
     <!-- Stripe scripts -->
-    {%block stripe_js %}{% endblock %}
+    {% block stripe_js %}{% endblock %}
 
     <!-- EmailJS scripts -->
-    <script type="text/javascript">
-        const user = '{{ emailjs_user }}'
-    </script>
-    <script type="text/javascript" src="{% static 'js/emailjs.js' %}"></script>
+    {% block email_js %}{% endblock %}
 
 </body>
 
