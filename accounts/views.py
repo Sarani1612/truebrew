@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UserRegistrationForm, EditUserInfoForm, EditUserForm
+from .models import UserInfo
 from products.models import Product
 
 # gets products to populate navbar dropdown in all views
@@ -58,6 +59,11 @@ def user_account(request):
 
 @login_required
 def edit_account(request):
+    '''
+    Renders a form for the user to fill out with contact details.
+    If the user already has info stored, the form will be pre-populated.
+    If not, a new UserInfo object will be created.
+    '''
     if request.method == 'POST':
         user_form = EditUserForm(request.POST, instance=request.user)
         user_info_form = EditUserInfoForm(request.POST, instance=request.user.userinfo)
@@ -69,8 +75,22 @@ def edit_account(request):
         else:
             messages.error(request, 'Your form has errors', extra_tags='danger')
     else:
-        user_form = EditUserForm(instance=request.user)
-        user_info_form = EditUserInfoForm(instance=request.user.userinfo)
+        obj, created = UserInfo.objects.get_or_create(user=request.user)
+        initial = {
+            'username': request.user.username,
+            'first_name': request.user.first_name,
+            'last_name': request.user.last_name,
+            'street_address1': request.user.userinfo.street_address1,
+            'street_address2': request.user.userinfo.street_address2,
+            'town_or_city': request.user.userinfo.town_or_city,
+            'county': request.user.userinfo.county,
+            'postcode': request.user.userinfo.postcode,
+            'country': request.user.userinfo.country,
+            'email': request.user.email,
+            'phone_number': request.user.userinfo.phone_number
+        }
+        user_form = EditUserForm(request.POST or None, initial=initial)
+        user_info_form = EditUserInfoForm(request.POST or None, initial=initial)
         context = {
             'products': products,
             'user_form': user_form,

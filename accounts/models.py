@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class UserInfo(models.Model):
+    '''
+    Model for storing additional user info to be used in the checkout process
+    '''
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     street_address1 = models.CharField(max_length=40, blank=True)
     street_address2 = models.CharField(max_length=40, blank=True)
