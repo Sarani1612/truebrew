@@ -32,9 +32,16 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.3.3/umd/popper.min.js" integrity="sha256-c1uSn1f61GqTIIVhdV3jCb9sO38lvhpsIAJC2kLp1MY=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha256-oKpAiD7qu3bXrWRVxnXLV1h7FlNV+p5YJBIr8LOCFYw=" crossorigin="anonymous"></script>
 
-<!-- EmailJS scripts -->
+    <!-- Stripe scripts -->
     <script type="text/javascript">
-        const user = '{{emailjs_user}}'
+        const publishable = '{{ stripe_publishable }}'
+    </script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+
+    <!-- EmailJS scripts -->
+    <script type="text/javascript">
+        const user = '{{ emailjs_user }}'
     </script>
     <script type="text/javascript" src="{% static 'js/emailjs.js' %}"></script>
 

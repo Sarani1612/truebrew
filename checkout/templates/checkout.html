@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load bootstrap_tags %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<div class="main-content">
+    <div class="account container mt-2">
+        <h1 class="text-center">Checkout</h1>
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{message.tags}}" role="alert">
+            {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="text-center">Order Summary</h2>
+                <table class="w-100">
+                    <tr>
+                        <th>Subscription</th>
+                        <th>price per box</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                    {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item.subscription.frequency }} - {{ item.subscription.product}}</td>
+                        <td>{{ item.subscription.unit_price }} / box</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.subscription_total }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="form-group col-md-6">
+                <h2 class="text-center">Payment Details</h2>
+                <form role="form" method="POST" id="payment-form" action="#">
+                    {% csrf_token %}
+                    {{ order_form | as_bootstrap }}
+                    <label for="card-element">
+                    Credit or debit card
+                    </label>
+                    <div id="card-element" class="MyCardElement">
+                    </div>
+
+                    <div id="card-errors" role="alert"></div>
+                    
+                    <div class="form-group d-flex flex-row">
+                        <input type="submit" class="btn custom-btn mx-auto" name="commit" value="Submit Payment">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -145,4 +145,8 @@ MEDIA_URL = '/media/'
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
+# Stripe
+STRIPE_PUBLISHABLE = os.environ.get('STRIPE_PUBLISHABLE')
+STRIPE_API_KEY = os.environ.get('STRIPE_API_KEY')
+
 EMAILJS_USER = os.environ.get('EMAILJS_USER')
