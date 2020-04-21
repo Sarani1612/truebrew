@@ -69,16 +69,13 @@
                 <div>
                     <ol>
                     {% for order in orders %}
-                        <li>{{ order.order.date }}
+                        <li>{{ order.order.date }} - Subtotal: €{{order.total}}
                             <ul>
                                 {% for item in order.items %}
-                                <li>{{ item.subscription.frequency }} - {{ item.subscription.product.category }} - {{ item.quantity }} - {{ item.total }}</li>
+                                <li>{{ item.item.subscription.frequency }} - {{ item.item.subscription.product.category }} - {{ item.item.quantity }} - Total: €{{ item.item_total }}</li>
                                 {% endfor %}
                             </ul>
                         </li>
-                        <li>{{ order.order.date }} - {{ items.quantity }}</li>
-                        <li>{{ order.items.quantity }}</li>
-                        <li>{{order.total }}</li>
                     {% empty %}
                         <li>You don't have any orders yet</li>
                     {% endfor %}

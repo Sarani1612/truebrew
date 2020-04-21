@@ -44,21 +44,22 @@ def user_registration(request):
             password = form.cleaned_data['password1']
             user = authenticate(request, username=username, password=password)
             login(request, user)
-            messages.success(request, "You have successfully created an account!")
+            messages.success(request, "Your account has been created!")
             return redirect('home')
     else:
         form = UserRegistrationForm()
-
-    return render(request, 'register.html', {'form': form, 'products': products})
+    context = {
+        'form': form,
+        'products': products
+        }
+    return render(request, 'register.html', context)
 
 
 @login_required
 def user_account(request):
-    '''The users profile page'''
+    '''Renders the user's account with address, contact and order details'''
     user_orders = Order.objects.filter(user=request.user).order_by('date')
-
     orders = []
-
     for order in user_orders:
         line_items = OrderLineItem.objects.filter(order=order)
         items = []
@@ -66,7 +67,7 @@ def user_account(request):
         for item in line_items:
             item_total = int(item.subscription.unit_price*item.quantity)
             items.append({'item': item, 'item_total': item_total})
-            print(items)
+
             total += item_total
         orders.append({'order': order, 'items': items, 'total': total})
 
@@ -74,7 +75,7 @@ def user_account(request):
         'orders': orders,
         'products': products
     }
-    print(orders)
+
     return render(request, 'account.html', context)
 
 
