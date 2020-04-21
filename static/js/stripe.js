@@ -1,4 +1,4 @@
-
+// the code below is from the Stripe documentation on accepting payments: https://stripe.com/docs/payments/accept-a-payment
 
 const stripe = Stripe(publishable);
 const elements = stripe.elements();
