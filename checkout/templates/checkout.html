@@ -37,7 +37,7 @@
             </div>
             <div class="form-group col-md-6">
                 <h2 class="text-center">Payment Details</h2>
-                <form role="form" method="POST" id="payment-form" action="#">
+                <form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">
                     {% csrf_token %}
                     {{ order_form | as_bootstrap }}
                     <label for="card-element">
