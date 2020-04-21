@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% load bootstrap_tags %}
 
 {% block title %}Checkout{% endblock %}
@@ -56,4 +56,13 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+<!-- Scripts for Stripe -->
+{% block stripe_js %}
+<script type="text/javascript">
+        const publishable = '{{ stripe_publishable }}'
+    </script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
