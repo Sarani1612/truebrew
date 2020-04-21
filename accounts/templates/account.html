@@ -17,7 +17,7 @@
             <div class="col-md-6">
                 <h2 class="text-center">Your account details</h2>
                 <p>Here you can see and change the info we have on file for you.</p>
-                <table>
+                <table class="w-100">
                     <caption>
                         Click on the pen icon to edit your info.
                         <a href="{% url 'edit_account' %}"><i class="fas fa-pen"></i></a>
@@ -66,12 +66,24 @@
             </div>
             <div class="col-md-6">
                 <h2 class="text-center">Previous orders</h2>
-                {% if user.is_authenticated %}
                 <div>
-                    <p>Username: {{ user.username }}</p>
-                    <p>Email: {{ user.email }}</p>
+                    <ol>
+                    {% for order in orders %}
+                        <li>{{ order.order.date }}
+                            <ul>
+                                {% for item in order.items %}
+                                <li>{{ item.subscription.frequency }} - {{ item.subscription.product.category }} - {{ item.quantity }} - {{ item.total }}</li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li>{{ order.order.date }} - {{ items.quantity }}</li>
+                        <li>{{ order.items.quantity }}</li>
+                        <li>{{order.total }}</li>
+                    {% empty %}
+                        <li>You don't have any orders yet</li>
+                    {% endfor %}
+                    </ol>
                 </div>
-                {% endif %}
             </div>
         </div>
     </div>

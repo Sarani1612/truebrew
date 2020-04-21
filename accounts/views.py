@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UserRegistrationForm, EditUserInfoForm, EditUserForm
 from .models import UserInfo
+from checkout.models import Order, OrderLineItem
 from products.models import Product
 
 # gets products to populate navbar dropdown in all views
@@ -54,7 +55,27 @@ def user_registration(request):
 @login_required
 def user_account(request):
     '''The users profile page'''
-    return render(request, 'account.html', {'products': products})
+    user_orders = Order.objects.filter(user=request.user).order_by('date')
+
+    orders = []
+
+    for order in user_orders:
+        line_items = OrderLineItem.objects.filter(order=order)
+        items = []
+        total = 0
+        for item in line_items:
+            item_total = int(item.subscription.unit_price*item.quantity)
+            items.append({'item': item, 'item_total': item_total})
+            print(items)
+            total += item_total
+        orders.append({'order': order, 'items': items, 'total': total})
+
+    context = {
+        'orders': orders,
+        'products': products
+    }
+    print(orders)
+    return render(request, 'account.html', context)
 
 
 @login_required
