@@ -24,10 +24,8 @@ $(document).ready(function () {
             data: JSON.stringify(data),
             contentType: 'application/json',
         }).done(function (response_data) {
-            alert(response_data);
             console.log(response_data);
         }).fail(function (error) {
-            alert(response_data);
             console.log(response_data);
         });
 
