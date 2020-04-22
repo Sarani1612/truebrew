@@ -20,7 +20,6 @@ $(document).ready(function () {
 
         $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
             type: 'POST',
-            url: '{% url "contact" %}',
             data: JSON.stringify(data),
             contentType: 'application/json',
         }).done(function () {
