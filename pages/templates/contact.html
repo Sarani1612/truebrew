@@ -17,7 +17,7 @@
                 </div>
                 {% endfor %}
                 {% endif %}
-                <form action="{% url 'contact' %}" method="POST" id="contact-form">
+                <form method="POST" id="contact-form">
                     {% csrf_token %}
                     
                     {{ contact_form | as_bootstrap }}
