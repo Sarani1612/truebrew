@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.contrib import messages
 from django.conf import settings
 from products.models import Product
@@ -23,13 +24,13 @@ def contact_page(request):
 
         if contact_form.is_valid():
             contact_form.save()
-            messages.success(request, 'Your message has been sent!')
-            return redirect('contact')
+            response_data = {}
+
+            response_data['success'] = 'Your message has been sent'
         else:
-            messages.error(
-                request,
-                'Your message was not sent. Please try again.', extra_tags='danger')
-            return redirect('contact')
+            response_data['error'] = 'Something went wrong. Please try again.'
+        return JsonResponse(response_data)
+
     else:
         if request.user.is_authenticated:
             initial = {
