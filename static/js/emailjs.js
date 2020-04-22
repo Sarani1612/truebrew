@@ -2,6 +2,8 @@ $(document).ready(function () {
 
     const contactForm = document.getElementById('contact-form');
 
+    contactForm.addEventListener('submit', sendMessage);
+
     function sendMessage() {
 
         var data = {
@@ -18,20 +20,19 @@ $(document).ready(function () {
 
         $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
             type: 'POST',
+            url: '{% url "contact" %}',
             data: JSON.stringify(data),
-            contentType: 'application/json'
-        }).done(function () {
-            alert('Your message was sent');
-            console.log('Success');
+            contentType: 'application/json',
+        }).done(function (response_data) {
+            alert(response_data);
+            console.log(response_data);
         }).fail(function (error) {
-            alert('Oops... ' + JSON.stringify(error));
-            console.log('Oops...');
+            alert(response_data);
+            console.log(response_data);
         });
 
         return false;
 
     }
-
-    contactForm.addEventListener('submit', sendMessage);
 
 })
