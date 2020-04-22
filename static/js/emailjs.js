@@ -23,14 +23,14 @@ $(document).ready(function () {
             url: '{% url "contact" %}',
             data: JSON.stringify(data),
             contentType: 'application/json',
-        }).done(function (response_data) {
-            console.log(response_data);
+        }).done(function () {
+            console.log('Success!');
         }).fail(function (error) {
-            console.log(response_data);
+            console.log('Oops... something went wrong' + JSON.stringify(error));
         });
 
         return false;
 
     }
 
-})
+});
