@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.core.mail import send_mail
 from django.conf import settings
 from products.models import Product
 from .forms import ContactMessageForm
@@ -23,6 +24,20 @@ def contact_page(request):
 
         if contact_form.is_valid():
             contact_form.save()
+
+            email = request.POST['email']
+            title = request.POST['title']
+            message_body = request.POST['message_body']
+
+            # send email
+            send_mail(
+                title,
+                message_body,
+                email,
+                ['truebrewboxes@gmail.com'],
+                fail_silently=False
+            )
+
             messages.success(request, 'Your message has been sent.')
         else:
             messages.error(
@@ -36,7 +51,6 @@ def contact_page(request):
                 'user': request.user,
                 'email': request.user.email
             }
-            print(initial)
             contact_form = ContactMessageForm(initial=initial)
         else:
             contact_form = ContactMessageForm()
