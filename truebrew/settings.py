@@ -148,3 +148,10 @@ STRIPE_PUBLISHABLE = os.environ.get('STRIPE_PUBLISHABLE')
 STRIPE_API_KEY = os.environ.get('STRIPE_API_KEY')
 
 EMAILJS_USER = os.environ.get('EMAILJS_USER')
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'truebrewboxes@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = True
