@@ -34,8 +34,7 @@ def contact_page(request):
                 title,
                 message_body,
                 email,
-                ['truebrewboxes@gmail.com'],
-                fail_silently=False
+                ['truebrewboxes@gmail.com']
             )
 
             messages.success(request, 'Your message has been sent.')
