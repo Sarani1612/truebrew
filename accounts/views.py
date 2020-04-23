@@ -8,7 +8,7 @@ from checkout.models import Order, OrderLineItem
 from products.models import Product
 
 # gets products to populate navbar dropdown in all views
-products = Product.objects.all()
+products = Product.objects.all().order_by('pk')
 
 
 # Create your views here.

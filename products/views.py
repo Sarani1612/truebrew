@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product, Subscription
 
 # gets products to populate navbar dropdown in all views
-products = Product.objects.all()
+products = Product.objects.all().order_by('pk')
 
 
 def all_products(request):

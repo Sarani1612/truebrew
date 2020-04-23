@@ -10,7 +10,7 @@ import stripe
 from products.models import Product, Subscription
 
 # gets products to populate navbar dropdown in all views
-products = Product.objects.all()
+products = Product.objects.all().order_by('pk')
 
 stripe_publishable = settings.STRIPE_PUBLISHABLE
 stripe.api_key = settings.STRIPE_API_KEY
