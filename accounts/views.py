@@ -6,6 +6,7 @@ from .forms import UserRegistrationForm, EditUserInfoForm, EditUserForm
 from .models import UserInfo
 from checkout.models import Order, OrderLineItem
 from products.models import Product
+from pages.models import ContactMessage
 
 # gets products to populate navbar dropdown in all views
 products = Product.objects.all().order_by('pk')
@@ -71,9 +72,12 @@ def user_account(request):
             total += item_total
         orders.append({'order': order, 'items': items, 'total': total})
 
+    user_emails = ContactMessage.objects.filter(user=request.user).order_by('date_sent')
+
     context = {
         'orders': orders,
-        'products': products
+        'products': products,
+        'emails': user_emails
     }
 
     return render(request, 'account.html', context)
