@@ -25,8 +25,20 @@
     3. [Acknowledgments](#acknowledgments)
 
 # True Brew
-
+True Brew is my final milestone project for the Code Institute Full-Stack Web Development course making use of the programming languages and frameworks taught in all the modules throughout the course.
+It is an e-commerce site where users can register for an account and buy loose-leaf tea subscription boxes.\
+The live site can be found at [True Brew](https://truebrew.herokuapp.com/)
 ## UX
+The target audience for this website are people who are passionate tea-drinkers and who are interested in buying and drinking tea of a better quality and with more varieties than what can usually be found in supermarkets.\
+The website also caters to people with a sense of adventure and who like the element of suprise given that they do not have full control over which products they are going to receive in the boxes.\
+A user's goals/needs would include:
+- finding a subscription box with a type of tea they like
+- finding a gift for a tea-drinker in their life
+- browsing all products and reading descriptions of each kind of tea
+- keeping track of account and order details
+
+With these user goals in mind, I came up with the following user stories and then created the wireframes below for a blueprint of how best to meet the needs of the users.
+
 ### User Stories
 ### Wireframes
 I created wireframes for small, medium and large screens for the following pages on the website:
