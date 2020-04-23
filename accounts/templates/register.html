@@ -10,21 +10,24 @@
         <div class="row">
             <div class="col-md-6 mx-auto form-wrapper">
                 <h1 class="text-center">Create Account</h1>
-                <form method="POST" action="{% url 'registration'%}">
-                    {% csrf_token %}
-                    
-                    {% if form.errors %}
-                    <div class="alert alert-danger" role="alert">
-                        Your form has errors. Please try again.
-                    </div>
-                    {% endif %}
+                <div class="form-div">
+                    <p>Register now to make orders and save account details</p>
+                    <form method="POST" action="{% url 'registration'%}">
+                        {% csrf_token %}
+                        
+                        {% if form.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            Your form has errors. Please try again.
+                        </div>
+                        {% endif %}
 
-                    {{ form | as_bootstrap }}
-                    <div class="d-flex flex-row">
-                        <p>Already have an account? <a href="{% url 'login' %}" class="green-links">Log in here.</a></p>
-                        <button type="submit" class="btn custom-btn">Register</button>
-                    </div>
-                </form>
+                        {{ form | as_bootstrap }}
+                        <div class="d-flex flex-row">
+                            <p>Already have an account? <a href="{% url 'login' %}" class="green-links">Log in here.</a></p>
+                            <button type="submit" class="btn custom-btn">Register</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>

@@ -173,7 +173,7 @@ table a {
     max-width: 700px;
 }
 
-form {
+.form-div {
     max-width: 500px;
     margin: auto;
     display: flex;

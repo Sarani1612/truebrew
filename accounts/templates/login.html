@@ -16,21 +16,24 @@
                 </div>
                 {% endfor %}
                 {% endif %}
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" class="form-control" name="username">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" name="password">
-                    </div>
-                    <div class="d-flex flex-row">
-                        <p>No account yet? <a href="{% url 'registration' %}" class="green-links">Create one here.</a></p>
-                        <button type="submit" class="btn custom-btn">Login</button>
-                    </div>
-                </form>
+                <div class="form-div">
+                    <p>Log in to view your account details and to go to checkout</p>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <div class="d-flex flex-row">
+                            <p>No account yet? <a href="{% url 'registration' %}" class="green-links">Create one here.</a></p>
+                            <button type="submit" class="btn custom-btn">Login</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
