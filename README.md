@@ -29,6 +29,19 @@
 ## UX
 ### User Stories
 ### Wireframes
+I created wireframes for small, medium and large screens for the following pages on the website:
+- [Home](wireframes/about.pdf)
+- [About](wireframes/about.pdf)
+- [User Account](wireframes/account.pdf)
+- [Login](wireframes/login.pdf)
+- [Register](wireframes/register.pdf)
+- [Product view](wireframes/product.pdf)
+- [Cart](wireframes/cart.pdf)
+- [Checkout](wireframes/checkout.pdf)
+- [Payment](wireframes/payment.pdf)
+- [Order Confirmation](wireframes/order-confirmation.pdf)
+- [Contact](wireframes/contact.pdf)
+
 Differences between the wireframes and the actual layout are discussed in the [Features](#wireframe-differences) section below.
 
 ## Features
