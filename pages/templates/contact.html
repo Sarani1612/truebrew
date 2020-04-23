@@ -29,10 +29,3 @@
     </section>
 </div>
 {% endblock %}
-
-{% block email_js %}
-<script type="text/javascript">
-    const user = '{{ emailjs_user }}'
-</script>
-<script type="text/javascript" src="{% static 'js/emailjs.js' %}"></script>
-{% endblock %}
