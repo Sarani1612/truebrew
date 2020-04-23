@@ -7,16 +7,17 @@
     2. [Wireframes](#wireframes)
 3. [Features](#features)
     1. [Design and Layout](#design-and-layout)
-    2. [Wireframe Differences](#wireframe-differences)
-    3. [Existing Features](#existing-features)
-    4. [Features Left to Implement](#features-left-to-implement) 
-4. [Technologies and Tools Used](#techonolies-and-tools-used)
+        1. [Wireframe Differences](#wireframe-differences)
+    2. [Existing Features](#existing-features)
+    3. [Features Left to Implement](#features-left-to-implement) 
+4. [Technologies and Tools Used](#technologies-and-tools-used)
 5. [Testing](#testing)
     1. [Testing User Stories](#testing-user-stories)
     3. [Additional Testing](#additional-testing)
     4. [Unit Testing](#unit-testing)
     5. [Issues](#issues)
         1. [Resolved](#resolved)
+        2. [Unresolved](#unresolved)
 6. [Deployment](#deployment)
     1. [Cloning and running the project locally](#cloning-and-running-the-project-locally)
 7. [Credits](#credits)
@@ -61,6 +62,74 @@ Differences between the wireframes and the actual layout are discussed in the [F
 #### Wireframe Differences
 ### Existing Features
 ### Features Left to Implement
+### Databases/Models
+While developing the app, the SQL database used was the **sqlite3** database that comes with Django.\
+In production I used the **PostgreSQL** database available on Heroku.
+#### Accounts app models
+I used the **User** model provided by Django for letting users register and log in. In addition, I created a custom **UserInfo** model:
+| Key             | Field Type | Validation                |
+|-----------------|------------|---------------------------|
+| user            | OneToOne   | on_delete=models.CASCADE  |
+| street_address1 | CharField  | max_length=40, blank=True |
+| street_address2 | CharField  | max_length=40, blank=True |
+| town_or_city    | CharField  | max_length=40, blank=True |
+| postcode        | CharField  | max_length=20, blank=True |
+| county          | CharField  | max_length=40, blank=True |
+| country         | CharField  | max_length=40, blank=True |
+| phone_number    | CharField  | max_length=20, blank=True |
+An object in this model has a one-to-one relationship with a User object, and the user can store address and contact info here for faster checkouts. Apart from the user field, all the fields are allowed to be blank because users are not required to enter their details in the database if they do not want to.
+#### Checkout app models
+the **Order** model:
+| Key             | Field Type | Validation                 |
+|-----------------|------------|----------------------------|
+| user            | OneToOne   | on_delete=models.CASCADE   |
+| full_name       | CharField  | max_length=50              |
+| street_address1 | CharField  | max_length=40              |
+| street_address2 | CharField  | max_length=40, blank=True  |
+| town_or_city    | CharField  | max_length=40              |
+| postcode        | CharField  | max_length=20, blank=True  |
+| county          | CharField  | max_length=40, blank=True  |
+| country         | CharField  | max_length=40              |
+| email           | EmailField |                            |
+| phone_number    | CharField  | max_length=20              |
+| date            | DateField  |                            |
+This model is used for storing orders. Each order object is related to a user on a one-to-one basis, so they can be retrieved and displayed on the user's account page. **street_address2**, **postcode** and **county** are allowed to be blank as they are not necessarily used in all countries in the world.\
+The **OrderLineItem** model:
+| Key          | Field Type   | Validation               |
+|--------------|--------------|--------------------------|
+| order        | ForeignKey   | on_delete=models.CASCADE |
+| subscription | ForeignKey   | on_delete=models.CASCADE |
+| quantity     | IntegerField |                          |
+This model stores an object for each item in an order. Each object relates to an Order and represents a particular subscription object in the Subscription model (Products app).
+#### Pages app models
+The **ContactMessage** model:
+| Key             | Field Type | Validation                 |
+|-----------------|------------|----------------------------|
+| user            | ForeignKey | on_delete=models.CASCADE, blank=True, null=True|
+| email           | EmailField    |                         |
+| title           | CharField     | max_length=150          |
+| message_body    | TextField     |                         |
+| date_sent       | DateTimeField | auto_now_add=True       |
+This model stores all messages sent through the Contact page form. If it was sent by a logged in user, the message has a ForeignKey to that user, allowing it to be retrieved and displayed on the user's account page. The user input field is not shown on the contact form.
+#### Products app models
+The **Product** model:
+| Key               | Field Type | Validation                 |
+|-------------------|------------|----------------------------|
+| title             | CharField  | max_length=50              |
+| category          | CharField  | max_length=20, choices=TEA_CHOICES,default=BLACK_TEA   |
+| image             | ImageField |                            |
+| description       | TextField  |                            |
+| short_description | TextField  |                            |
+This model stores an object for each tea available in the store.
+The **Subscription** model:
+| Key               | Field Type   | Validation                         |
+|-------------------|--------------|------------------------------------|
+| frequency         | CharField    | max_length=15                      |
+| description       | TextField    |                                    |
+| unit_price        | DecimalField | max_digits=6, decimal_places=2     |
+| practical_info    | CharField    | max_length=200                     |
+| product           | ForeignKey   | on_delete=models.CASCADE, null=True|
+Each object in this database is a specific subscription related to a specific object in the Product database.
 
 ## Technologies and Tools Used
 - HTML, CSS, JavaScript and Python were used to build the webpage
@@ -107,7 +176,7 @@ including medium size which I did not otherwise have access to.
     ```
     I also printed the cart to see what was in it. I then added 2 of the product with the id 3 to the cart, and then tried adding another 4, so that the total should have been 6. Instead the total was 4. The 'else' print statement was printed, indicating that the product already in the cart was not recognized, and printing cart resulted in `{'3' : 2, 3 : 4}`. It was then clear that the product was not being found because its id was stored as a string while it was being added as an integer.\
     I solved the issue by removing `int:` from the paths in the urls file so that they read `path('adjust/<id>/', ...)` instead of `path('adjust/<int:id>/, ...)'`.
-#### Not resolved
+#### Unresolved
 
 
 ## Deployment
