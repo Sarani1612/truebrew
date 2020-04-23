@@ -65,6 +65,7 @@ Differences between the wireframes and the actual layout are discussed in the [F
 ### Databases/Models
 While developing the app, the SQL database used was the **sqlite3** database that comes with Django.\
 In production I used the **PostgreSQL** database available on Heroku.
+
 #### Accounts app models
 I used the **User** model provided by Django for letting users register and log in. In addition, I created a custom **UserInfo** model:
 | Key             | Field Type | Validation                |
@@ -77,7 +78,9 @@ I used the **User** model provided by Django for letting users register and log 
 | county          | CharField  | max_length=40, blank=True |
 | country         | CharField  | max_length=40, blank=True |
 | phone_number    | CharField  | max_length=20, blank=True |
+
 An object in this model has a one-to-one relationship with a User object, and the user can store address and contact info here for faster checkouts. Apart from the user field, all the fields are allowed to be blank because users are not required to enter their details in the database if they do not want to.
+
 #### Checkout app models
 the **Order** model:
 | Key             | Field Type | Validation                 |
@@ -93,14 +96,18 @@ the **Order** model:
 | email           | EmailField |                            |
 | phone_number    | CharField  | max_length=20              |
 | date            | DateField  |                            |
-This model is used for storing orders. Each order object is related to a user on a one-to-one basis, so they can be retrieved and displayed on the user's account page. **street_address2**, **postcode** and **county** are allowed to be blank as they are not necessarily used in all countries in the world.\
+
+This model is used for storing orders. Each order object is related to a user on a one-to-one basis, so they can be retrieved and displayed on the user's account page. **street_address2**, **postcode** and **county** are allowed to be blank as they are not necessarily used in all countries in the world.
+
 The **OrderLineItem** model:
 | Key          | Field Type   | Validation               |
 |--------------|--------------|--------------------------|
 | order        | ForeignKey   | on_delete=models.CASCADE |
 | subscription | ForeignKey   | on_delete=models.CASCADE |
 | quantity     | IntegerField |                          |
+
 This model stores an object for each item in an order. Each object relates to an Order and represents a particular subscription object in the Subscription model (Products app).
+
 #### Pages app models
 The **ContactMessage** model:
 | Key             | Field Type | Validation                 |
@@ -110,7 +117,9 @@ The **ContactMessage** model:
 | title           | CharField     | max_length=150          |
 | message_body    | TextField     |                         |
 | date_sent       | DateTimeField | auto_now_add=True       |
+
 This model stores all messages sent through the Contact page form. If it was sent by a logged in user, the message has a ForeignKey to that user, allowing it to be retrieved and displayed on the user's account page. The user input field is not shown on the contact form.
+
 #### Products app models
 The **Product** model:
 | Key               | Field Type | Validation                 |
@@ -120,7 +129,9 @@ The **Product** model:
 | image             | ImageField |                            |
 | description       | TextField  |                            |
 | short_description | TextField  |                            |
+
 This model stores an object for each tea available in the store.
+
 The **Subscription** model:
 | Key               | Field Type   | Validation                         |
 |-------------------|--------------|------------------------------------|
@@ -129,6 +140,7 @@ The **Subscription** model:
 | unit_price        | DecimalField | max_digits=6, decimal_places=2     |
 | practical_info    | CharField    | max_length=200                     |
 | product           | ForeignKey   | on_delete=models.CASCADE, null=True|
+
 Each object in this database is a specific subscription related to a specific object in the Product database.
 
 ## Technologies and Tools Used
