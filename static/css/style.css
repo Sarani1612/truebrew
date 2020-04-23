@@ -191,7 +191,21 @@ form {
     text-decoration: none;
 }
 
+/* User account view */
+.accordion-heading {
+    background-color: rgba(163, 199, 123, 0.5);
+    cursor: pointer;
+    padding: 5px;
+    margin-bottom: 5px;
+}
 
+.accordion-heading:hover {
+        background-color: rgba(163, 199, 123, 0.75);
+}
+
+.accordion-body {
+    display: none;
+}
 
 /* Table styling for accounts and cart apps */
 
