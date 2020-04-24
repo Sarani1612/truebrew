@@ -5,13 +5,10 @@ from django.conf import settings
 from products.models import Product
 from .forms import ContactMessageForm
 
-# gets products to populate navbar dropdown in all views
-products = Product.objects.all().order_by('pk')
-
 
 # Create your views here.
 def home_page(request):
-    return render(request, 'index.html', {'products': products})
+    return render(request, 'index.html')
 
 
 def contact_page(request):
@@ -54,7 +51,6 @@ def contact_page(request):
         else:
             contact_form = ContactMessageForm()
         context = {
-            'products': products,
             'contact_form': contact_form,
             'emailjs_user': settings.EMAILJS_USER
         }

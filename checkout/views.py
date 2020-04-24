@@ -9,8 +9,6 @@ from django.utils import timezone
 import stripe
 from products.models import Product, Subscription
 
-# gets products to populate navbar dropdown in all views
-products = Product.objects.all().order_by('pk')
 
 stripe_publishable = settings.STRIPE_PUBLISHABLE
 stripe.api_key = settings.STRIPE_API_KEY
@@ -81,7 +79,6 @@ def checkout(request):
             }
         order_form = OrderForm(request.POST or None, initial=initial)
     context = {
-        'products': products,
         'order_form': order_form,
         'stripe_publishable': stripe_publishable
     }

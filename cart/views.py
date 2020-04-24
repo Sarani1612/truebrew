@@ -3,14 +3,10 @@ from django.contrib import messages
 from products.models import Product
 
 
-# gets products to populate navbar dropdown in all views
-products = Product.objects.all().order_by('pk')
-
-
 # Create your views here.
 def view_cart(request):
     ''' renders the cart template '''
-    return render(request, 'cart.html', {'products': products})
+    return render(request, 'cart.html')
 
 
 def add_to_cart(request, id):

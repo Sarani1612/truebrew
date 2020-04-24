@@ -8,9 +8,6 @@ from checkout.models import Order, OrderLineItem
 from products.models import Product
 from pages.models import ContactMessage
 
-# gets products to populate navbar dropdown in all views
-products = Product.objects.all().order_by('pk')
-
 
 # Create your views here.
 def user_login(request):
@@ -26,7 +23,7 @@ def user_login(request):
             messages.error(request, 'Login failed - please try again', extra_tags='danger')
             return redirect('login')
     else:
-        return render(request, 'login.html', {'products': products})
+        return render(request, 'login.html')
 
 
 @login_required
@@ -50,8 +47,7 @@ def user_registration(request):
     else:
         form = UserRegistrationForm()
     context = {
-        'form': form,
-        'products': products
+        'form': form
         }
     return render(request, 'register.html', context)
 
@@ -76,7 +72,6 @@ def user_account(request):
 
     context = {
         'orders': orders,
-        'products': products,
         'emails': user_emails
     }
 
@@ -118,7 +113,6 @@ def edit_account(request):
         user_form = EditUserForm(request.POST or None, initial=initial)
         user_info_form = EditUserInfoForm(request.POST or None, initial=initial)
         context = {
-            'products': products,
             'user_form': user_form,
             'user_info_form': user_info_form
             }
