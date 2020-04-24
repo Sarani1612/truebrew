@@ -216,6 +216,7 @@ These instructions and more info can be found at [this GitHub Help Page](https:/
 
 ### Code:
 - [This article by Vitor Freitas](https://simpleisbetterthancomplex.com/tutorial/2016/07/22/how-to-extend-django-user-model.html#onetoone) was used to help me extend the User model
+- [John Elder's Codemy](https://codemy.com/) course on Django user authentication helped me set up the login/registration forms and views.
 
 ### Content and Media
 - The texts about the different kinds of tea were adapted from [Republic of Tea](https://www.republicoftea.com/)
