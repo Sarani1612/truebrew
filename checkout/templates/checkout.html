@@ -16,7 +16,7 @@
             {% endfor %}
         {% endif %}
         <div class="row">
-            <div class="col-md-6">
+            <section class="col-md-6">
                 <h2 class="text-center">Order Summary</h2>
                 <table class="w-100">
                     <tr>
@@ -34,10 +34,10 @@
                     </tr>
                     {% endfor %}
                 </table>
-            </div>
-            <div class="form-group col-md-6">
+            </section>
+            <section class="form-group col-md-6">
                 <h2 class="text-center">Payment Details</h2>
-                <form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">
+                <form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}" class="d-flex flex-column">
                     {% csrf_token %}
                     {{ order_form | as_bootstrap }}
                     <label for="card-element">
@@ -50,7 +50,7 @@
                     
                     <input type="submit" class="btn custom-btn mt-2" name="commit" value="Submit Payment">
                 </form>
-            </div>
+            </section>
         </div>
     </div>
 </div>
