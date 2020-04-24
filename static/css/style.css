@@ -46,7 +46,7 @@ table a:hover {
 /* Positions main content in all views */
 .main-content {
 	margin-top: 77px;
-    padding: 0;
+    padding: 0 0 0.5rem;
 	-webkit-box-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
@@ -233,7 +233,6 @@ footer {
 	color: #573723;
 	min-height: 60px;
 	padding: 2%;
-    margin-top: 0.5rem;
     text-align: center;
 }
 
