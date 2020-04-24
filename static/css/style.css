@@ -86,7 +86,7 @@ h1 {
     background-color: #573723;
 }
 
-/* Landing page settings */
+/* Landing page styling */
 .landing-page {
 	background-image: url('/static/images/home-img.jpg');
 	background-position: center;
@@ -196,6 +196,10 @@ table a {
 }
 
 /* User account view */
+.section-wrapper {
+    padding: 10px;
+}
+
 .accordion-heading {
     background-color: rgba(163, 199, 123, 0.5);
     cursor: pointer;
@@ -204,7 +208,7 @@ table a {
 }
 
 .accordion-heading:hover {
-        background-color: rgba(163, 199, 123, 0.75);
+    background-color: rgba(163, 199, 123, 0.75);
 }
 
 .accordion-body {
