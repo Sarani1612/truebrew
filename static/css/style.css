@@ -52,11 +52,15 @@ table a:hover {
 	flex: 1;
 }
 
-/* Custom styling for alert boxes */
+/* Custom styling for alerts and errors */
 .alert {
     width: 80%;
     margin: auto;
     text-align: center;
+}
+
+.error-msg {
+    background-color: #f8d7da;
 }
 
 /* Custom heading styling */
