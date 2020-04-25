@@ -14,6 +14,7 @@ import os
 import dj_database_url
 if os.path.exists("env.py"):
     import env
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -155,6 +156,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger'
+}
 
 # Stripe
 STRIPE_PUBLISHABLE = os.environ.get('STRIPE_PUBLISHABLE')
