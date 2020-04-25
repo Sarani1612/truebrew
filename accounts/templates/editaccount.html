@@ -10,14 +10,16 @@
         <div class="row">
             <div class="col-md-6 mx-auto form-wrapper">
                 <h1 class="text-center">Update Account Info</h1>
-                <form method="POST" action="{% url 'edit_account' %}">
-                    {% csrf_token %}
+                <div class="form-div">
+                    <form method="POST" action="{% url 'edit_account' %}" class="d-flex flex-column">
+                        {% csrf_token %}
 
-                    {{ user_form | as_bootstrap }}
-                    {{ user_info_form | as_bootstrap }}
-                    
-                    <button type="submit" class="btn custom-btn">Submit</button>
-                </form>
+                        {{ user_form | as_bootstrap }}
+                        {{ user_info_form | as_bootstrap }}
+                        
+                        <button type="submit" class="btn custom-btn">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
