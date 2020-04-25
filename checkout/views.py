@@ -47,17 +47,17 @@ def checkout(request):
                     source=token,
                 )
             except stripe.error.CardError:
-                messages.error(request, "Your card was declined!", extra_tags="danger")
+                messages.error(request, "Your card was declined!")
 
             if customer.paid:
                 messages.success(request, "Your order has been placed!")
                 request.session['cart'] = {}
                 return redirect('account')
             else:
-                messages.error(request, "Unable to take payment", extra_tags="danger")
+                messages.error(request, "Unable to take payment")
         else:
             print(order_form.errors)
-            messages.error(request, "We were unable to take a payment with that card", extra_tags="danger")
+            messages.error(request, "We were unable to take a payment with that card")
     else:
         try:
             UserInfo.objects.get(user=request.user)

@@ -20,7 +20,7 @@ def user_login(request):
             messages.success(request, "You are now logged in!")
             return redirect('home')
         else:
-            messages.error(request, 'Login failed - please try again', extra_tags='danger')
+            messages.error(request, 'Login failed - please try again')
             return redirect('login')
     else:
         return render(request, 'login.html')
@@ -94,7 +94,7 @@ def edit_account(request):
             messages.success(request, "Your profile has been updated!")
             return redirect('account')
         else:
-            messages.error(request, 'Your form has errors', extra_tags='danger')
+            messages.error(request, 'Your form has errors')
     else:
         obj, created = UserInfo.objects.get_or_create(user=request.user)
         initial = {

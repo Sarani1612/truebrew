@@ -38,7 +38,7 @@ def contact_page(request):
         else:
             messages.error(
                 request,
-                'Sorry, something went wrong. Please try again.', extra_tags="danger")
+                'Sorry, something went wrong. Please try again.')
         return redirect('contact')
 
     else:
