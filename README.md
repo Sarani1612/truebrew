@@ -164,6 +164,8 @@ Each object in this database is a specific subscription related to a specific ob
 - [Canva](https://www.canva.com/) was used to design the website logo and [Favicon.io](https://favicon.io/) to turn it into a favicon
 - [Font Awesome](https://fontawesome.com/) provided all icons used throughout the website
 - [Balsamiq](https://balsamiq.com/) was used to create wireframes for the project
+- [Amazon S3 Bucket](https://aws.amazon.com/s3/) was used to store images
+- [Django Storages](https://django-storages.readthedocs.io/en/latest/) and [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) were used to connect Django with S3
 
 ## Testing
 See the separate [TESTING.md](TESTING.md)
