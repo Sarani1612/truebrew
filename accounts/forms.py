@@ -34,7 +34,7 @@ class EditUserForm(UserChangeForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].label = 'username:'
+        self.fields['username'].label = 'Username:'
         self.fields['email'].label = 'Email Address:'
         self.fields['first_name'].label = 'First Name:'
         self.fields['last_name'].label = 'Last Name:'
