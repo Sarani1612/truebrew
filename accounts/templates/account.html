@@ -70,7 +70,9 @@
 			<section class="col-md-6">
                 <div class="section-wrapper">
                     <h2>Message History</h2>
+                    {% if emails %}
                     <p>See messages you've sent to us using the contact form.</p>
+                    {% endif %}
                     <div class="messages-wrapper">
                         {% for email in emails %}
                         <div class="accordion-heading">
@@ -88,22 +90,27 @@
             <section class="col-md-6">
                 <div class="section-wrapper">
                     <h2 class="text-center">Order History</h2>
-                    <div>
-                        <ol>
-                            {% for order in orders %}
-                            <li>{{ order.order.date }} - Subtotal: €{{order.total}}
-                                <ul>
-                                    {% for item in order.items %}
-                                    <li>{{ item.item.subscription.frequency }} -
-                                        {{ item.item.subscription.product.category }} - {{ item.item.quantity }} - Total:
-                                        €{{ item.item_total }}</li>
-                                    {% endfor %}
-                                </ul>
-                            </li>
-                            {% empty %}
-                            <li>You don't have any orders yet</li>
+                    {% if orders %}
+                    <p>See orders you've made previously.</p>
+                    {% endif %}
+                    <div class="messages-wrapper">
+                        {% for order in orders %}
+                        <div class="accordion-heading">
+                            {{ order.order.date }} - Subtotal: €{{order.total}}
+                        </div>
+                        <div class="accordion-body">
+                            {% for item in order.items %}
+                            <p>
+                            {{ item.item.subscription.frequency }} -
+                            {{ item.item.subscription.product.category }} - 
+                            Quantity: {{ item.item.quantity }} - 
+                            Total: €{{ item.item_total }}
+                            </p>
                             {% endfor %}
-                        </ol>
+                        </div>
+                        {% empty %}
+                        <p>You don't have any orders yet.</p>
+                        {% endfor %}
                     </div>
                 </div>    
 			</section>
