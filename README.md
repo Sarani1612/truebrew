@@ -19,7 +19,8 @@
         1. [Resolved](#resolved)
         2. [Unresolved](#unresolved)
 6. [Deployment](#deployment)
-    1. [Cloning and running the project locally](#cloning-and-running-the-project-locally)
+    1. [Cloning and running the project locally]
+    2. (#cloning-and-running-the-project-locally)
 7. [Credits](#credits)
     1. [Code](#code)
     2. [Content and Media](#content-and-media)
@@ -41,6 +42,19 @@ A user's goals/needs would include:
 With these user goals in mind, I came up with the following user stories and then created the wireframes below for a blueprint of how best to meet the needs of the users.
 
 ### User Stories
+1. as a first-time user of the website, I want to be able to intuitively browse so that I do not have to hunt around for things
+2. as a first-time user, I want to be able to find out what services are offered and who is behind them
+3. as a first-time user, I want to be able to see what is on offer before registering for an account
+4. as a new user who is ready to register, I want to be able to do so quickly and easily
+5. as a returning user, I want to be able to log in to my account
+6. as a returning user who forgot my password, I want to be able to reset it so that I can log in again
+7. as a returning user, I want to be able to add an address so I can checkout faster
+8. as a returning customer, I want to be able to see an overview of my previous orders
+9. as a user who has decided to buy a product, I want to be able to add it to a cart and have easy access to checking the cart
+10. as a user who has decided to buy a product, I want a quick and easy checkout process
+11. as a user, registered or not, I want a convenient way to get in touch with the business
+12. as a logged in user who is ready to leave the website, I want to be able to log out so that I do not leave personal information accessible to others
+
 ### Wireframes
 I created wireframes for small, medium and large screens for the following pages on the website:
 - [Home](wireframes/about.pdf)
