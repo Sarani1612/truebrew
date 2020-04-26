@@ -145,41 +145,44 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_REGION_NAME = 'eu-west-1'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-
+AWS_DEFAULT_ACL = None
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-AWS_DEFAULT_ACL = None
-
 STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
-]
-
 MEDIAFILES_LOCATION = 'media'
+
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_URL = STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN,STATICFILES_LOCATION)
 MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
+
 # Stripe
 STRIPE_PUBLISHABLE = os.environ.get('STRIPE_PUBLISHABLE')
 STRIPE_API_KEY = os.environ.get('STRIPE_API_KEY')
 
-EMAILJS_USER = os.environ.get('EMAILJS_USER')
 
-
+# Email settings for contact form and resetting passwords
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True
+
+
+# Not currently in use
+# EMAILJS_USER = os.environ.get('EMAILJS_USER')
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static")
+# ]
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
