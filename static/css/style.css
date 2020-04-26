@@ -43,7 +43,7 @@ table a:hover {
     border-bottom: 3px solid #a3c77b;
 }
 
-.badge-pill {
+.nav-link .badge-custom {
     background-color: #a3c77b;
     color:#573723;
 }
