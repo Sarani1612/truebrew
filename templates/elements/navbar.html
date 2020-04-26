@@ -15,7 +15,7 @@
             <a class="nav-link nav-fa-link" href="{% url 'cart' %}">
                 <i class="fas fa-shopping-cart nav-fa-icon"></i>
                 {% if subscription_count > 0 %}
-                <label class="badge badge-pill badge-success">{{ subscription_count }}</label>
+                <label class="badge badge-pill">{{ subscription_count }}</label>
                 {% endif %}
             </a>
         </li>
@@ -68,7 +68,7 @@
                 <a href="{% url 'cart' %}" class="nav-link">
                     <i class="fas fa-shopping-cart"></i>
                     {% if subscription_count > 0 %}
-                    <label class="badge badge-pill badge-success">{{ subscription_count }}</label>
+                    <label class="badge badge-pill">{{ subscription_count }}</label>
                     {% endif %}
                 </a>
             </li>

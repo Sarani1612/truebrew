@@ -43,6 +43,11 @@ table a:hover {
     border-bottom: 3px solid #a3c77b;
 }
 
+.badge-pill {
+    background-color: #a3c77b;
+    color:#573723;
+}
+
 /* Positions main content in all views */
 .main-content {
 	margin-top: 77px;
