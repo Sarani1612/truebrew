@@ -30,8 +30,10 @@
                         <td>
                             <form class="form-inline" method="POST" action="{% url 'adjust_quantity' item.id %}">
                                 {% csrf_token %}
-                                <input name="quantity" type="number" min="0" max="999" class="form-control" value="{{ item.quantity }}">
-                                <button class="btn custom-btn info-btn" type="submit">Amend</button>
+                                <div class="input-group input-group-sm">
+                                    <input name="quantity" type="number" min="0" max="999" class="form-control" value="{{ item.quantity }}">
+                                    <button class="btn btn-sm custom-btn info-btn" type="submit">Amend</button>
+                                </div>
                             </form>
                         </td>
                         <td>{{ item.subscription_total }}</td>
