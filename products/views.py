@@ -14,7 +14,7 @@ def view_product(request, pk):
     '''
     tea = get_object_or_404(Product, pk=pk)
     subs = Subscription.objects.filter(
-        product__exact=tea).order_by('unit_price')
+        product__exact=tea).order_by('-unit_price')
 
     context = {
         'product': tea,
