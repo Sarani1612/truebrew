@@ -39,6 +39,10 @@ table a:hover {
 	padding: 0.75rem;
 }
 
+.nav-item {
+    border-bottom: 3px solid transparent;
+}
+
 .nav-item:hover {
     border-bottom: 3px solid #a3c77b;
 }
