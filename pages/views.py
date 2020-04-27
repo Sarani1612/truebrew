@@ -51,7 +51,6 @@ def contact_page(request):
         else:
             contact_form = ContactMessageForm()
         context = {
-            'contact_form': contact_form,
-            'emailjs_user': settings.EMAILJS_USER
+            'contact_form': contact_form
         }
         return render(request, 'contact.html', context)
