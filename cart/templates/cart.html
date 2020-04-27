@@ -15,6 +15,7 @@
             {% endfor %}
         {% endif %}
         <div class="row">
+            {% if cart_items %}
             <div class="col-12">
                 <table class="w-100">
                     <tr>
@@ -60,6 +61,12 @@
                     </tr>
                 </table>
             </div>
+            {% else %}
+            <div class="col-md-6 mx-auto">
+                <p>There are no items in your cart yet. Have a look at our products:</p>
+                <a href="{% url 'all_products' %}" class="btn custom-btn" role="button">Go to products</a>
+            </div>
+            {% endif %}
         </div>
 	</div>
 </div>
