@@ -44,7 +44,12 @@ class TestEditUserForm(TestCase):
 
     def test_edit_user_form(self):
         user = User.objects.get(id=1)
-        form = EditUserForm()
+        form = EditUserForm(
+            {'username': 'john',
+            'email': "john@smith.com",
+            'first_name': 'John',
+            'last_name': 'Smith'
+            })
         self.assertTrue(form.is_valid())
 
     def test_edit_user_info_form(self):
