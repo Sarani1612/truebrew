@@ -18,7 +18,7 @@ class Order(models.Model):
     country = models.CharField(max_length=40, blank=False)
     email = models.EmailField()
     phone_number = models.CharField(max_length=20, blank=False)
-    date = models.DateField()
+    date = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return "{0}-{1}-{2}".format(self.id, self.date, self.full_name)
