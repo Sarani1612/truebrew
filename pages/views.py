@@ -34,7 +34,8 @@ def contact_page(request):
                 ['truebrewboxes@gmail.com']
             )
 
-            messages.success(request, 'Your message has been sent.')
+            messages.success(request,
+                'Your message has been sent. Thank you for getting in touch!')
         else:
             messages.error(
                 request,

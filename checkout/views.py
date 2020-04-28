@@ -50,7 +50,7 @@ def checkout(request):
                 messages.error(request, "Your card was declined!")
 
             if customer.paid:
-                messages.success(request, "Your order has been placed!")
+                messages.success(request, "Thank you, your order has been placed!")
                 request.session['cart'] = {}
                 return redirect('account')
             else:
