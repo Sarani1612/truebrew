@@ -3,13 +3,13 @@
 ## Table of Contents
 1. [True Brew](#true-brew)
 2. [UX](#ux)
-    1. [User Stories](#user-stories)
-    2. [Wireframes](#wireframes)
-3. [Features](#features)
     1. [Design and Layout](#design-and-layout)
+    2. [User Stories](#user-stories)
+    3. [Wireframes](#wireframes)
         1. [Wireframe Differences](#wireframe-differences)
-    2. [Existing Features](#existing-features)
-    3. [Features Left to Implement](#features-left-to-implement) 
+3. [Features](#features)
+    1. [Existing Features](#existing-features)
+    2. [Features Left to Implement](#features-left-to-implement) 
 4. [Technologies and Tools Used](#technologies-and-tools-used)
 5. [Testing](#testing)
 6. [Deployment](#deployment)
@@ -33,7 +33,16 @@ A user's goals/needs would include:
 - browsing all products and reading descriptions of each kind of tea
 - keeping track of account and order details
 
-With these user goals in mind, I came up with the following user stories and then created the wireframes below for a blueprint of how best to meet the needs of the users.
+With these user goals in mind, I came up with several user stories and then created wireframes for a blueprint of how best to meet the needs of the users (these can be found under the Design and Layout section).
+
+### Design and Layout
+As the business in this project sells products that would typically be enjoyed during a break or a relaxing night in, I wanted a clean and calm-looking design, rather than something busy with vibrant colours and lots going on.\
+I therefore picked two calming colours to be used throughout the website. For the brand logo and name, footer and action buttons (log in, register, pay etc) I used a delicate green (#a3c77b), and for text, borders, shadows and product buttons I used a dark brown (#573723).\
+I also tried to pick specific shades of green and brown that would be associated with green and black tea in the mind.\
+As the background image for the landing page and log in and registration views, I picked a simple photo of a teapot with light colours. To ensure the green colour mentioned above did not clash with the photo, I used the colour picker tool on a leaf in the photo and extracted it from there.
+
+The font used for the brand name is [Merienda](https://fonts.google.com/specimen/Merienda). The name is a Spanish term for 'afternoon snack' and with its soft strokes, it was the perfect fit for a business selling a relaxing product like tea.\
+The classic [Open Sans](https://fonts.google.com/specimen/Open+Sans) was used for all other text due to its excellent legibility and readability.
 
 ### User Stories
 1. as a first-time user of the website, I want to be able to intuitively browse so that I do not have to hunt around for things
@@ -63,12 +72,9 @@ I created wireframes for small, medium and large screens for the following pages
 - [Order Confirmation](wireframes/order-confirmation.pdf)
 - [Contact](wireframes/contact.pdf)
 
-Differences between the wireframes and the actual layout are discussed in the [Features](#wireframe-differences) section below.
+#### Wireframe Differences
 
 ## Features
-
-### Design and Layout
-#### Wireframe Differences
 ### Existing Features
 ### Features Left to Implement
 - For now, this project uses the Stripe Charges API as it was taught in the course (with some changes due to the project using Stripe V3 and not V2 as in the course), but this is not ideal as it does not handle payments that need card authentication which is widely used in Europe. I would have liked to implement either Stripe Checkout or the Payment Intents API, but I was not able to do so with the time available to me. I am hoping to be able to implement this once I have more time and experience.
