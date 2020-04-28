@@ -71,6 +71,7 @@ Differences between the wireframes and the actual layout are discussed in the [F
 #### Wireframe Differences
 ### Existing Features
 ### Features Left to Implement
+- For now, this project uses the Stripe Charges API as it was taught in the course (with some changes due to the project using Stripe V3 and not V2 as in the course), but this is not ideal as it does not handle payments that need card authentication which is widely used in Europe. I would have liked to implement either Stripe Checkout or the Payment Intents API, but I was not able to do so with the time available to me. I am hoping to be able to implement this once I have more time and experience.
 ### Databases/Models
 While developing the app, the SQL database used was the **sqlite3** database that comes with Django.\
 In production I used the **PostgreSQL** database available on Heroku.
