@@ -17,6 +17,10 @@
                 {% endfor %}
                 {% endif %}
                 <div class="form-div">
+                    {% if user.is_authenticated %}
+                    <p>It looks like you are already logged in.</p>
+                    <p>Please use the links in the menu bar to browse the site.</p>
+                    {% else %}
                     <p>Log in to view your account details and to go to checkout</p>
                     <form method="POST">
                         {% csrf_token %}
@@ -34,6 +38,7 @@
                         </div>
                         <p>Can't remember your password? <a href="{% url 'reset_password' %}" class="green-links">Reset it here.</a></p>
                     </form>
+                    {% endif %}
                 </div>
             </div>
         </div>
