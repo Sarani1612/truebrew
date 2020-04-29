@@ -53,6 +53,9 @@ class TestEditUserForm(TestCase):
         self.assertTrue(form.is_valid())
 
     def test_edit_user_info_form(self):
+        '''
+        test the user form is still valid when not all fields are filled out
+        '''
         user = User.objects.get(id=1)
         form = EditUserInfoForm(
             {'street_address1': '12 Test St',
