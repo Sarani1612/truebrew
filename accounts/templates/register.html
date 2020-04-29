@@ -11,6 +11,10 @@
             <div class="col-md-6 mx-auto form-wrapper">
                 <h1 class="text-center">Create Account</h1>
                 <div class="form-div">
+                    {% if user.is_authenticated %}
+                    <p>It looks like you already have an account and are signed in.</p>
+                    <p>Please use the links in the menu bar to browse the site.</p>
+                    {% else %}
                     <p>Register now to make orders and save account details</p>
                     <form method="POST" action="{% url 'registration'%}">
                         {% csrf_token %}
@@ -27,6 +31,7 @@
                             <button type="submit" class="btn custom-btn">Register</button>
                         </div>
                     </form>
+                    {% endif %}
                 </div>
             </div>
         </div>
