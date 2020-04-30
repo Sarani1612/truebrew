@@ -13,8 +13,7 @@
 4. [Technologies and Tools Used](#technologies-and-tools-used)
 5. [Testing](#testing)
 6. [Deployment](#deployment)
-    1. [Cloning and running the project locally]
-    2. (#cloning-and-running-the-project-locally)
+    1. [Cloning and running the project locally](#cloning-and-running-the-project-locally)
 7. [Credits](#credits)
     1. [Code](#code)
     2. [Content and Media](#content-and-media)
@@ -77,7 +76,13 @@ I created wireframes for small, medium and large screens for the following pages
 ## Features
 ### Existing Features
 ### Features Left to Implement
-- For now, this project uses the Stripe Charges API as it was taught in the course (with some changes due to the project using Stripe V3 and not V2 as in the course), but this is not ideal as it does not handle payments that need card authentication which is widely used in Europe. I would have liked to implement either Stripe Checkout or the Payment Intents API, but I was not able to do so with the time available to me. I am hoping to be able to implement this once I have more time and experience.
+- **Stripe Checkout or Payment Intents:** For now, this project uses the Stripe Charges API as it was taught in the course (with some changes due to the project using Stripe V3 and not V2 as in the course), but this is not ideal as it does not handle payments that need card authentication which is widely used in Europe. I would have liked to implement either Stripe Checkout or the Payment Intents API, but I was not able to do so with the time available to me. I am hoping to be able to implement this once I have more time and experience.
+- **Recurring payments:** As it is now, a user will be charged the full amount up front for all the boxes they are going to receive, but this is not ideal as most people are likely to prefer paying a smaller amount with regular intervals.
+- **Search functionality:** At the moment, a search functionality is not necessary as there is a limited number of products available (6 types of tea with 3 kinds of subscriptions), but if the business were to expand their range of products (selling loose leaf tea by quantity, accessories etc), a search function would definitely become needed in order for users to easily locate what they are looking for.
+- **User reviews:** Reviews from other customers are a powerful way to showcase products and services and to show that the business is trustworthy, so adding a section with reviews on the home page is another good potential feature.
+- **Blog section:** This is a good way for a business to really showcase their products, especially a business that constantly renews their inventory. A blog section would allow the buisness to write more in detail about the different teas in each month's boxes and to give tips, share recipes and so on.\
+In addition, it would allow the business to cultivate a more personal relationship with their customers and introduce their employees to them.
+
 ### Databases/Models
 While developing the app, the SQL database used was the **sqlite3** database that comes with Django.\
 In production I used the **PostgreSQL** database available on Heroku.
@@ -173,6 +178,7 @@ Each object in this database is a specific subscription related to a specific ob
 - [Balsamiq](https://balsamiq.com/) was used to create wireframes for the project
 - [Amazon S3 Bucket](https://aws.amazon.com/s3/) was used to store images
 - [Django Storages](https://django-storages.readthedocs.io/en/latest/) and [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) were used to connect Django with S3
+- [Stripe](https://stripe.com/) was used for card payments
 
 ## Testing
 See the separate [TESTING.md](TESTING.md)
@@ -214,5 +220,6 @@ These instructions and more info can be found at [this GitHub Help Page](https:/
 
 ### Acknowledgments
 - Thank you to Xavier at the Code Institute for pointing me in the right direction with how to relate the Product and Subscription models.
+- Thank you to my partner and to my sister for testing the app
 
 *This website is for educational purposes only. It was created as part of the Code Institute Full Stack Developer course.*
