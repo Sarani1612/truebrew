@@ -20,6 +20,9 @@ including medium size which I did not otherwise have access to.
 JavaScript code was run through the [JSHint](https://jshint.com/) analysis tool to check for syntax errors.
 In addition, CSS was checked in the [CSS Validator](https://jigsaw.w3.org/css-validator/) and HTML in the [HTML Validator](https://validator.w3.org/).
 
+I also created a number of automated tests for this project (these can be found in the app folders in the repository).\
+As I do not have much experience with writing automated tests, they are fairly limited in scope and they by no means cover the whole project, but it was good practice to at least write a few testing forms and urls.
+
 ## Issues
 ### Resolved
 1. I encountered a problem with my add_to_cart function where adding more of a product already in the cart would overwrite the quantity insteading of adding the new quantity to the old. In the view I added print statements to the if-else clause:
