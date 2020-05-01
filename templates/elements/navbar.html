@@ -66,8 +66,8 @@
             </li>
             {% endif %}
             <li class="nav-item d-none d-md-block">
-                <a href="{% url 'cart' %}" class="nav-link">
-                    <i class="fas fa-shopping-cart"></i>
+                <a href="{% url 'cart' %}" class="nav-link nav-link-cart">
+                    <i class="fas fa-shopping-cart cart-md"></i>
                     {% if subscription_count > 0 %}
                     <label class="badge badge-pill">{{ subscription_count }}</label>
                     {% endif %}
