@@ -50,7 +50,7 @@
                 <a class="nav-link" href="#">About</a>
             </li>
             {% if user.is_authenticated %}
-            <li class="nav-item">
+            <li class="nav-item d-none d-md-block">
                 <a class="nav-link" href="{% url 'account' %}"><i class="fas fa-user"></i> Account</a>
             </li>
             <li class="nav-item">
@@ -64,7 +64,7 @@
                 <a class="nav-link" href="{% url 'registration' %}"><i class="fas fa-user-plus"></i> Register</a>
             </li>
             {% endif %}
-            <li class="nav-item">
+            <li class="nav-item d-none d-md-block">
                 <a href="{% url 'cart' %}" class="nav-link">
                     <i class="fas fa-shopping-cart"></i>
                     {% if subscription_count > 0 %}
