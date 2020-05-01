@@ -14,6 +14,32 @@ All the following testing has been carried out on smaller screens running both i
 running both macOS and Windows in multiple browsers. In addition, Chrome's developer tools were used extensively to test on all screen sizes
 including medium size which I did not otherwise have access to.
 ### Testing User Stories
+1. as a first-time user of the website, I want to be able to intuitively browse so that I do not have to hunt around for things
+   - This is easily done via the navbar which is always at the top of the browser. The navbar has clearly labelled links to all subpages, and from here the user can get anywhere on the website.
+2. as a first-time user, I want to be able to find out what services are offered and who is behind them
+   - Info about the business and its services is available as soon as the user gets to the home page. The text on the landing page image sums up what is on offer here, and further down there are two info boxes detailing the services and how the business started.
+3. as a first-time user, I want to be able to see what is on offer before registering for an account
+   - On this website, a user only has to register for an account once they get to the checkout process, so there is ample opportunity for getting a sense of the products on offer and the business before then. All the different teas available can be reached from the navbar and the home page, so the user does not have to go far to find out what the products are.
+4. as a new user who is ready to register, I want to be able to do so quickly and easily
+   - To register, a user would only have to click the 'Register' link in the navbar which leads to a simple and easy to fill out registration form. It is only necessary to provide an email address, a username and a password, so the whole process does not take long, and the helper text for each field provided by Django also makes it easy to fill out the form.
+5. as a returning user, I want to be able to log in to my account
+   - A user can do this at any time by clicking the 'Login' link in the navbar.
+6. as a returning user who forgot my password, I want to be able to reset it so that I can log in again
+   - This can be done by going to the login page and clicking on the link to reset password under the form. The user will receive an email with a link they need to follow in order to reset their password.
+7. as a returning user, I want to be able to add an address so I can checkout faster
+   - On the user's account page, they will find a table showing address and contact information. They can click the pen icon and fill out the form that comes up, and when they then go to checkout, the address form will be prepopulated with those details.
+8. as a returning customer, I want to be able to see an overview of my previous orders
+   - The user will find an overview of all orders they've placed on their account page.
+9. as a user who has decided to buy a product, I want to be able to add it to a cart and have easy access to checking the cart
+   - Products are easy to add to the cart. The user must go the product page for the tea they are interested in, and there they will find information about the three different subscription types available. They can click the button to add 1 subscription to the cart or adjust the amount before clicking. The cart is always available from the navbar.
+10. as a user who has decided to buy a product, I want a quick and easy checkout process
+   - The checkout process is very quick and easy. When a user goes to the cart and clicks on the 'Checkout' button, they will be taken to the checkout page where they can see an order summary and fill out a single form to place the order.
+11. as a user with items in my cart, I want to be able to adjust the amount or delete from it
+   - The user can do this by going to the cart view. Here, they can see how many of a specific subscription they have, and they can adjust the amount or click on the bin icon to remove something completely from the cart.
+12. as a user, registered or not, I want a convenient way to get in touch with the business
+   - This can be done via the Contact page which is always available from the navbar. The user only needs to fill out their email address (if not logged in already), a subject line and message. When they click the 'Send' button, an email will be sent to the business' email address.
+13. as a logged in user who is ready to leave the website, I want to be able to log out so that I do not leave personal information accessible to others
+   - The user can do this by clicking on the 'Log out' link in the navbar. The user is then rerouted to the home page and the navbar links change ('Login' and 'Register' instead of 'Log out' and 'Account') showing that the user has indeed been logged out.
 ### Testing Features
 
 ## Automated Testing
@@ -48,5 +74,7 @@ As I do not have much experience with writing automated tests, they are fairly l
 The issue was solved by using the `get_or_create()` method instead of just `get()`. This way, an object is created when the user clicks the edit icon for the first time, allowing them to add their address details.
 
 ### Unresolved
+As of now, I am not aware of any bugs as such left unresolved, though there are certainly features etc that I would like to improve or add later on.
 
 ## Additional Testing
+In addition to the testing described above, I asked my partner and my sister to test the website for me. I wrote them a use case to ensure they tested as much of the site's functionality as possible. They both reported back that they did not find any bugs.

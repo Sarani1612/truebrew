@@ -18,7 +18,7 @@ def contact_page(request):
     '''
     if request.method == 'POST':
         contact_form = ContactMessageForm(request.POST)
-
+        
         if contact_form.is_valid():
             contact_form.save()
 
