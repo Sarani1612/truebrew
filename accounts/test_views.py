@@ -1,6 +1,5 @@
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
-from .views import user_account
 
 
 class TestViews(TestCase):
