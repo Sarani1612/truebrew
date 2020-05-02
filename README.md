@@ -59,25 +59,39 @@ The classic [Open Sans](https://fonts.google.com/specimen/Open+Sans) was used fo
 
 ### Wireframes
 I created wireframes for small, medium and large screens for the following pages on the website:
-- [Home](wireframes/about.pdf)
-- [About](wireframes/about.pdf)
-- [User Account](wireframes/account.pdf)
-- [Login](wireframes/login.pdf)
-- [Register](wireframes/register.pdf)
-- [Product view](wireframes/product.pdf)
-- [Cart](wireframes/cart.pdf)
-- [Checkout](wireframes/checkout.pdf)
-- [Payment](wireframes/payment.pdf)
-- [Order Confirmation](wireframes/order-confirmation.pdf)
-- [Contact](wireframes/contact.pdf)
+- [Home](wireframes/about.png)
+- [About](wireframes/about.png)
+- [User Account](wireframes/account.png)
+- [Login](wireframes/login.png)
+- [Register](wireframes/register.png)
+- [Product view](wireframes/product.png)
+- [Cart](wireframes/cart.png)
+- [Checkout](wireframes/checkout.png)
+- [Payment](wireframes/payment.png)
+- [Order Confirmation](wireframes/order-confirmation.png)
+- [Contact](wireframes/contact.png)
 
 #### Wireframe Differences
+- **Product view:** as shown in the wireframe below, I initially planned on having a product card for all subscriptions for all teas in the all_products view (18 cards in total), but it quickly became clear that it would look very cluttered and chaotic, and instead I settled on the current design where there is only one card per tea, and the subscriptions are only shown once the user clicks on a specific tea.
+![Product view](wireframes/product.png)
+
+- **Checkout in one step:** the checkout process was supposed to be in two steps as shown below. First, the user would fill out their address details, then click next and get to a payment view. However, when I implemented Stripe Elements and saw that the credit card form took up very little space, it seemed over the top to place it on a separate page.\
+An added benefit here is that the checkout process takes less clicks which increases the chance of the user going through with the purchase.
+![Checkout](wireframes/checkout.png)
+![Payment](wireframes/payment.png)
+
+- **Order confirmation page:** in the end, it turned out there was not enough content to justify a separate view for the order confirmation at this stage, and I instead return the customer to their account page with a success message.\
+![Order Confirmation](wireframes/order-confirmation.png)
+
+- **User account page:** when I created the wireframes, I had a fairly simple account page in mind. It was just going to show the username and maybe email address, and they would be able to change them to something else. But when I started building it, it seemed too simple and not very useful to the users. Instead it would be ideal to have the option to fill out an address for later checkouts and to show the user their previous orders, so I set out to include that as well.
+![Account Page](wireframes/account.png)
 
 ## Features
 ### Existing Features
 ### Features Left to Implement
 - **Stripe Checkout or Payment Intents:** For now, this project uses the Stripe Charges API as it was taught in the course (with some changes due to the project using Stripe V3 and not V2 as in the course), but this is not ideal as it does not handle payments that need card authentication which is widely used in Europe. I would have liked to implement either Stripe Checkout or the Payment Intents API, but I was not able to do so with the time available to me. I am hoping to be able to implement this once I have more time and experience.
 - **Recurring payments:** As it is now, a user will be charged the full amount up front for all the boxes they are going to receive, but this is not ideal as most people are likely to prefer paying a smaller amount with regular intervals.
+- **Delivery addresses:** I would like to implement at some point the option to enter a separate delivery address for each subscription in the order so that users can buy a subscription as a gift for someone else and have it shipped directly to the recipient.
 - **Search functionality:** At the moment, a search functionality is not necessary as there is a limited number of products available (6 types of tea with 3 kinds of subscriptions), but if the business were to expand their range of products (selling loose leaf tea by quantity, accessories etc), a search function would definitely become needed in order for users to easily locate what they are looking for.
 - **User reviews:** Reviews from other customers are a powerful way to showcase products and services and to show that the business is trustworthy, so adding a section with reviews on the home page is another good potential feature.
 - **Blog section:** This is a good way for a business to really showcase their products, especially a business that constantly renews their inventory. A blog section would allow the buisness to write more in detail about the different teas in each month's boxes and to give tips, share recipes and so on.\
@@ -116,7 +130,7 @@ the **Order** model:
 | country         | CharField  | max_length=40              |
 | email           | EmailField |                            |
 | phone_number    | CharField  | max_length=20              |
-| date            | DateField  |                            |
+| date            | DateField  | auto_now_add=True          |
 
 This model is used for storing orders. Each order object is related to a user on a one-to-one basis, so they can be retrieved and displayed on the user's account page. **street_address2**, **postcode** and **county** are allowed to be blank as they are not necessarily used in all countries in the world.
 
@@ -124,7 +138,7 @@ The **OrderLineItem** model:
 | Key          | Field Type   | Validation               |
 |--------------|--------------|--------------------------|
 | order        | ForeignKey   | on_delete=models.CASCADE |
-| subscription | ForeignKey   | on_delete=models.CASCADE |
+| subscription | ForeignKey   | on_delete=models.SET_DEFAULT, default='No longer available' |
 | quantity     | IntegerField |                          |
 
 This model stores an object for each item in an order. Each object relates to an Order and represents a particular subscription object in the Subscription model (Products app).
