@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="main-content">
-    <div class="account container mt-2">
+    <div class="container mt-2">
         <h1 class="text-center">Checkout</h1>
         {% if messages %}
             {% for message in messages %}
@@ -16,7 +16,7 @@
             {% endfor %}
         {% endif %}
         <div class="row">
-            <section class="col-md-6">
+            <section class="col-lg-6 mb-2">
                 <h2 class="text-center">Order Summary</h2>
                 <table class="w-100">
                     <tr>
@@ -45,7 +45,7 @@
                     </tr>
                 </table>
             </section>
-            <section class="form-group col-md-6">
+            <section class="form-group col-lg-6">
                 <h2 class="text-center">Payment Details</h2>
                 <form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}" class="d-flex flex-column">
                     {% csrf_token %}
