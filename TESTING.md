@@ -40,7 +40,17 @@ including medium size which I did not otherwise have access to.
     - This can be done via the Contact page which is always available from the navbar. The user only needs to fill out their email address (if not logged in already), a subject line and message. When they click the 'Send' button, an email will be sent to the business' email address.
 13. as a logged in user who is ready to leave the website, I want to be able to log out so that I do not leave personal information accessible to others
     - The user can do this by clicking on the 'Log out' link in the navbar. The user is then rerouted to the home page and the navbar links change ('Login' and 'Register' instead of 'Log out' and 'Account') showing that the user has indeed been logged out.
+
 ### Testing Features
+- **Navbar:**
+- **Home page:**
+- **Products page:**
+- **Contact page:**
+- **Cart:**
+- **Checkout:**
+- **User registration:**
+- **User account page:**
+- **Messages:**
 
 ## Automated Testing
 JavaScript code was run through the [JSHint](https://jshint.com/) analysis tool to check for syntax errors.
@@ -74,7 +84,8 @@ As I do not have much experience with writing automated tests, they are fairly l
 The issue was solved by using the `get_or_create()` method instead of just `get()`. This way, an object is created when the user clicks the edit icon for the first time, allowing them to add their address details.
 
 ### Unresolved
-As of now, I am not aware of any bugs as such left unresolved, though there are certainly features etc that I would like to improve or add later on.
+1. For some reason, the emails sent via the contact form to the business mailbox have the business email address as both to address ans from address. This would definitely be a problem in a real life situation since the business would have no way of knowing who the email was sent from and no way of getting in touch with the sender.\
+I have gone over the Django documentation for sending emails thoroughly, but at this stage I cannot point to the flaw in my code that is producing this behaviour, as it appears to be identical to what is in the documentation.
 
 ## Additional Testing
 In addition to the testing described above, I asked my partner and my sister to test the website for me. I wrote them a use case to ensure they tested as much of the site's functionality as possible. They both reported back that they did not find any bugs.

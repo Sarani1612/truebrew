@@ -22,7 +22,7 @@ def contact_page(request):
         if contact_form.is_valid():
             contact_form.save()
 
-            email = request.POST['email']
+            from_email = request.POST['email']
             title = request.POST['title']
             message_body = request.POST['message_body']
 
@@ -30,7 +30,7 @@ def contact_page(request):
             send_mail(
                 title,
                 message_body,
-                email,
+                from_email,
                 ['truebrewboxes@gmail.com']
             )
 

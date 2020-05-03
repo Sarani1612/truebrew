@@ -90,6 +90,16 @@ An added benefit here is that the checkout process takes less clicks which incre
 
 ## Features
 ### Existing Features
+- **Navbar:**
+- **Home page:**
+- **Products page:**
+- **Contact page:**
+- **Cart:**
+- **Checkout:**
+- **User registration:**
+- **User account page:**
+- **Messages:**
+
 ### Features Left to Implement
 - **Stripe Checkout or Payment Intents:** For now, this project uses the Stripe Charges API as it was taught in the course (with some changes due to the project using Stripe V3 and not V2 as in the course), but this is not ideal as it does not handle payments that need card authentication which is widely used in Europe. I would have liked to implement either Stripe Checkout or the Payment Intents API, but I was not able to do so with the time available to me. I am hoping to be able to implement this once I have more time and experience.
 - **Recurring payments:** As it is now, a user will be charged the full amount up front for all the boxes they are going to receive, but this is not ideal as most people are likely to prefer paying a smaller amount with regular intervals.
