@@ -48,7 +48,7 @@ including medium size which I did not otherwise have access to.
 - **Contact page:**
 - **Cart:**
 - **Checkout:**
-- **User registration:**
+- **User registration, login and logout:**
 - **User account page:**
 - **Messages:**
 

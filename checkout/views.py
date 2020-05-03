@@ -46,19 +46,24 @@ def checkout(request):
                     description=request.user.email,
                     source=token,
                 )
-            except stripe.error.CardError:
-                messages.error(request, "Your card was declined!")
 
-            if customer.paid:
-                messages.success(request, "Thank you, your order has been placed!")
-                request.session['cart'] = {}
-                return redirect('account')
-            else:
-                messages.error(request, "Unable to take payment")
+                if customer.paid:
+                    messages.success(request, "Thank you, your order has been placed!")
+                    request.session['cart'] = {}
+                    return redirect('account')
+                else:
+                    messages.error(request, "Unable to take payment")
+
+            except stripe.error.CardError:
+                print(stripe.error.CardError)
+                messages.error(request, "Your card was declined. Please try again.")
+
         else:
             print(order_form.errors)
             messages.error(request, "We were unable to take a payment with that card")
+
     else:
+
         try:
             UserInfo.objects.get(user=request.user)
             initial = {
@@ -73,6 +78,7 @@ def checkout(request):
                 'email': request.user.email,
                 'phone_number': request.user.userinfo.phone_number
             }
+
         except UserInfo.DoesNotExist:
             initial = {
                 'user': request.user.id
@@ -82,4 +88,5 @@ def checkout(request):
         'order_form': order_form,
         'stripe_publishable': stripe_publishable
     }
+    
     return render(request, "checkout.html", context)
