@@ -1,12 +1,12 @@
 $( document ).ready(function() {
     
-    // gets divs containing user message dates and titles
+    // gets divs to trigger accordion
     accordionBtn = document.querySelectorAll('.accordion-heading');
 
     // when clicking on an accordion-heading div, the toggleAccordion function is executed
     accordionBtn.forEach(button => button.addEventListener('click', toggleAccordion));
 
-    // toggles showing the div containing the full message
+    // toggles showing the div containing more information
     function toggleAccordion() {
         accordion = this.nextElementSibling;
         if (accordion.style.display === 'block') {
@@ -16,4 +16,10 @@ $( document ).ready(function() {
         }
     };
 
+    // Removes alert messages after 5 seconds
+    setTimeout(function () {
+        $('.alert').fadeOut('slow');}, 5000
+        );
+
 });
+
