@@ -86,6 +86,8 @@ An added benefit here is that the checkout process takes less clicks which incre
 - **User account page:** when I created the wireframes, I had a fairly simple account page in mind. It was just going to show the username and maybe email address, and they would be able to change them to something else. But when I started building it, it seemed too simple and not very useful to the users. Instead it would be ideal to have the option to fill out an address for later checkouts and to show the user their previous orders, so I set out to include that as well.
 ![Account Page](wireframes/account.png)
 
+- **About page:** the decision to take out the separate About page was taken because it would not have added anything new to the website. For now, the **About Us** section on the home page contains all the info that would have been on an About page. As a potential future feature I have listed a **Blog section** (see below), which would be a sort of enhanced About page with introductions to staff etc.
+
 ## Features
 ### Existing Features
 ### Features Left to Implement
