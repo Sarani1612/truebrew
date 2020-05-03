@@ -20,14 +20,14 @@
                 <table class="w-100">
                     <tr>
                         <th>Subscription</th>
-                        <th>price per box</th>
+                        <th>price</th>
                         <th>Quantity</th>
                         <th>Total</th>
                     </tr>
                     {% for item in cart_items %}
                     <tr>
                         <td>{{ item.subscription.frequency }} - {{ item.subscription.product}}</td>
-                        <td>{{ item.subscription.unit_price }} / box</td>
+                        <td>€{{ item.subscription.unit_price }}</td>
                         <td>
                             <form class="form-inline" method="POST" action="{% url 'adjust_quantity' item.id %}">
                                 {% csrf_token %}
@@ -37,7 +37,7 @@
                                 </div>
                             </form>
                         </td>
-                        <td>{{ item.subscription_total }}</td>
+                        <td>€{{ item.subscription_total }}</td>
                         <td class="no-border"> <a href="{% url 'delete_subscription' item.id %}"><i class="fas fa-trash-alt"></i></a></td>
                     </tr>
                     {% endfor %}
@@ -49,7 +49,7 @@
                     </tr>
                     <tr class="font-weight-bold">
                         <td colspan="3">SUBTOTAL</td>
-                        <td><i class="fas fa-euro-sign"></i>{{ subtotal }}</td>
+                        <td>€{{ subtotal }}</td>
                     </tr>
                     <tr>
                         <td class="no-border" colspan="2">
