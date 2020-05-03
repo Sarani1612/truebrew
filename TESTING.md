@@ -10,9 +10,7 @@
 4. [Additional Testing](#additional-testing)
 
 ## Manual Testing
-All the following testing has been carried out on smaller screens running both iOS and Android and on larger screens
-running both macOS and Windows in multiple browsers. In addition, Chrome's developer tools were used extensively to test on all screen sizes
-including medium size which I did not otherwise have access to.
+
 ### Testing User Stories
 1. as a first-time user of the website, I want to be able to intuitively browse so that I do not have to hunt around for things
      - This is easily done via the navbar which is always at the top of the browser. The navbar has clearly labelled links to all subpages, and from here the user can get anywhere on the website.
@@ -42,13 +40,22 @@ including medium size which I did not otherwise have access to.
     - The user can do this by clicking on the 'Log out' link in the navbar. The user is then rerouted to the home page and the navbar links change ('Login' and 'Register' instead of 'Log out' and 'Account') showing that the user has indeed been logged out.
 
 ### Testing Features
-- **Navbar:**
-- **Home page:**
-- **Products page:**
-- **Contact page:**
-- **Cart:**
-- **Checkout:**
+All the following testing has been carried out on smaller screens running both iOS and Android and on larger screens running both macOS and Windows in multiple browsers. In addition, Chrome's developer tools were used extensively to test on all screen sizes including medium size which I did not otherwise have access to.
+- **Navbar:** no issues found. Renders and stays in place as intended. All links are working. The correct links are shown for users that are logged in and users not logged in. On small screens the navbar collapsed into dropdown except for the account and cart links which are shown as icons.
+- **Home page:** the home page renders as intended across screen sizes and browsers. On small screens everything is stacked, while on medium and up product cards are displayed in rows of 4.\
+While testing on a smartphone, I noticed that there was no spacing between the two info boxes in the About Us section, which looked a little cramped. To solve this, I added a little margin at the bottom of the first box.
+- **Products page:** the products page renders as intended. On small screens all the product cards are stacked, on medium screens (e.g. iPad) they are shown 2 per row, on large screens (e.g. iPad Pro) there are 3 per row and on extra large screens 4 per row. Images render nicely and all the buttons are working.
+- **Product view:** product and subscription cards render with all the necessary info and images, but on medium sized screens the cards were very narrow and long, and it did not look great. I solved this by changing the product div class to `col-md-8` instead of `col-md-6` so that it is broader on medium screens. For the subscription cards, I changed the layout so that there are only 2 per row on medium screens.
+- **Contact page:** the contact pages renders as intended. When logged in, the user and email fields are prepopulated as intended. If the 'Send' button is clicked without all the fields filled in, the user is notified of this and the form does not submit.\
+On succesfully sending a message, the page refreshes and a success message is displayed. The message is saved in the ContactMessage model.
+- **Cart:** the cart renders as intended. If there are no items in the cart, a paragraph is displayed to inform the user of this along with a button to the products page.\
+If there are items in the cart, a table is displayed with a row per subscription and options to amend or delete. Both of these worked as intended. Upon amending the number of a particular subscription, the prices are adjusted, and when a subscription is deleted, a flash message shows up to let the user know that it has been removed from the cart. The 'Back to Shopping' and 'Checkout' buttons work as intended.
+- **Checkout:** The checkout page renders as intended with an order summary and a checkout form. When not logged in, I got redirected to the login page as intended. The fields in the form were correctly prepopulated with any details available in the UserInfo model.\
+I tested the payments both with correct and incorrect card info and they all behaved correctly. Stripe handles most of the validation, so error messages are shown when entering invalid card numbers, CVV numbers, dates etc.\
+For testing of the payment form, please use the test card numbers available [here](https://stripe.com/docs/testing). Using any of the 3D Secure card numbers will fail. This is expected since the Stripe Charges API does not support card authentication. A flashed message appears to inform the user that the payment did not go through.\
+In case the payment was successful, the user gets redirected to their account page with a message telling them that their order has been placed. 
 - **User registration, login and logout:**
+- **Password reset:** 
 - **User account page:**
 - **Messages:**
 
