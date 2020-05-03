@@ -21,18 +21,28 @@
                 <table class="w-100">
                     <tr>
                         <th>Subscription</th>
-                        <th>price per box</th>
+                        <th>price</th>
                         <th>Quantity</th>
                         <th>Total</th>
                     </tr>
                     {% for item in cart_items %}
                     <tr>
                         <td>{{ item.subscription.frequency }} - {{ item.subscription.product}}</td>
-                        <td>{{ item.subscription.unit_price }} / box</td>
+                        <td>€{{ item.subscription.unit_price }}</td>
                         <td>{{ item.quantity }}</td>
-                        <td>{{ item.subscription_total }}</td>
+                        <td>€{{ item.subscription_total }}</td>
                     </tr>
                     {% endfor %}
+                    <tr>
+                        <td>Shipping - <i class="fas fa-truck"></i></td>
+                        <td></td>
+                        <td></td>
+                        <td>FREE</td>
+                    </tr>
+                    <tr class="font-weight-bold">
+                        <td colspan="3">SUBTOTAL</td>
+                        <td>€{{ subtotal }}</td>
+                    </tr>
                 </table>
             </section>
             <section class="form-group col-md-6">
