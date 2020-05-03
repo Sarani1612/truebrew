@@ -90,15 +90,24 @@ An added benefit here is that the checkout process takes less clicks which incre
 
 ## Features
 ### Existing Features
-- **Navbar:**
-- **Home page:**
-- **Products page:**
-- **Contact page:**
-- **Cart:**
-- **Checkout:**
-- **User registration:**
-- **User account page:**
-- **Messages:**
+- **Navbar:** the website has a navbar that stays at the top in all views for easy access to all pages. There is always a 'Home' link, a dropdown menu with access to the products, a 'Contact' page link and a link to the cart. If the user is not logged in, the navbar will show 'Login' and 'Register' links, while a logged in user will see 'Account' and 'Logout' links.\
+On small screens, the navbar is collapsed into a dropdown menu and there are quick access links to the cart and the account page.
+- **Home page:** the first section of the home page consists of a background image and a short descriptive text over the image. This section takes up a third of the viewport height which allows the user to get a glimpse of the second section from the start and signals to the user to scroll down.\
+Next is a Products section showing cards for the teas that are sold by the business. A user can click on the button in each card to get to the product page for that specific product.\
+Last is the About Us section which has two info boxes. The first one gives details about the box subscription services provided by the business, and the second one has some background info on the business and the people behind it.
+- **Products page:** from the dropdown menu in the navbar, the user can get to a page similar to the middle section on the home page. This page also has cards for all teas sold by the business.
+- **Product view:** when a user clicks on the 'Subscribe' button in one of the product cards, they are taken to a page showing details about the chosen tea. Underneath, the user will see three cards with information on the three types of subscription available (monthly, quarterly or semiannual delivery).\
+On small screens, each of the cards will take up the full viewport width and are stacked while they will be shown on a single row on medium sizes and up.
+- **Contact page:** this page has a very straight-forward form for sending the business a message. There are 4 inputs: user (if the user is logged in, this will be prepopulated. It is hidden because users are not meant to interact with this field), email address (this is also prepopulated for logged in users), title and message_body.\
+When a user clicks the Send button, the message is saved in the database for later retrieval and an email is sent to the business mailbox.
+- **Cart:** when a user adds something to the cart, they are rerouted to the cart view which can also be reached at any time from the navbar. The cart shows an overview of the products currently in the users cart, and from here they can adjust the number of items or delete something completely from the cart. There are two buttons in the cart view: one for going back to viewing all products and one for continuing to checkout.
+- **Checkout:** the checkout view shows an order summary on the left-hand side on medium screens and up (at the top on small screens) and on the right-hand side is the checkout form (bottom on small screens). The form input fields prepopulate with any available data from the User and UserInfo models. At the bottom of the form is the Stripe form which handles payments.
+- **User registration, login and logout:** as it is not possible to checkout without having an account and being logged in, users will have to register before they can buy anything.\
+They do this by going to the Registration page available from the navbar. Here they fill in the standard Django form for user registrations picking a username and password and providing an email address. If the form contains errors, error messages will appear to let the user know what they need to change. Once the account has been created, the user will be logged in and redirected to the home page with a success message.\
+The user is now able to log in and out at any time using the links in the navbar.
+- **Password reset:** the website uses the Django reset password functionality so that users can receive an email with a reset link in case they have forgotten their password.
+- **User account page:** users have access to an account page where they can see, add and edit address and contact details. They can also see their order and message history.
+- **Messages:** the website provides feedback to user in the form of the Django messages framework. Any time a user does something active like registering, logging in and out, sending a message and paying, they will receive feedback on it via success or error messages.
 
 ### Features Left to Implement
 - **Stripe Checkout or Payment Intents:** For now, this project uses the Stripe Charges API as it was taught in the course (with some changes due to the project using Stripe V3 and not V2 as in the course), but this is not ideal as it does not handle payments that need card authentication which is widely used in Europe. I would have liked to implement either Stripe Checkout or the Payment Intents API, but I was not able to do so with the time available to me. I am hoping to be able to implement this once I have more time and experience.
