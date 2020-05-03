@@ -9,9 +9,9 @@
 		<div class="row">
 			{% for product in products %}
 			<div class="col-md-6 col-lg-4 col-xl-3 mb-3">
-				<div class="h-100 w-100 mx-auto card-div">
+				<div class="h-100 w-100 mx-auto card-div d-flex flex-column">
 					<h5 class="card-title">{{ product.title }}</h5>
-					<img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img" alt="{{ product.category }}">
+					<img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img mx-auto" alt="{{ product.category }}">
 					<p>{{ product.short_description }}</p>
 					<hr>
 					<div class="d-flex flex-row">
