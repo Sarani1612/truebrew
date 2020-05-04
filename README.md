@@ -212,6 +212,7 @@ Each object in this database is a specific subscription related to a specific ob
 - [Font Awesome](https://fontawesome.com/) provided all icons used throughout the website
 - [Balsamiq](https://balsamiq.com/) was used to create wireframes for the project
 - [Amazon S3 Bucket](https://aws.amazon.com/s3/) was used to store images
+- [Whitenoise](http://whitenoise.evans.io/en/stable/) was used to serve static files for the deployed website
 - [Django Storages](https://django-storages.readthedocs.io/en/latest/) and [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) were used to connect Django with S3
 - [Stripe](https://stripe.com/) was used for card payments
 
@@ -220,12 +221,31 @@ See the separate [TESTING.md](TESTING.md)
 
 ## Deployment
 This project was developed in Gitpod and pushed regularly to the GitHub repository via git commands in the terminal.\
+For trickier parts of the code, I used separate branches and only merged them with the master branch once they worked as intended.\
+While developing, sensitive info was kept as environment variables in an `env.py` file.\
 The website was deployed on Heroku via the following steps:
-1. I created an app on Heroku and connected to it on Gitpod in the terminal
-2. I set the necessary config vars in the Heroku Settings tab (secret key, MongoDB name, MongoDB URI, IP and PORT)
-3. I regularly pushed code from Gitpod to Heroku via the command line (later I set up automatic deploys from the master branch
-in the Heroku Deploy tab)
-4. The app was then available on ...
+1. installed Gunicorn and created a Procfile and a requirements.txt file
+2. created an app on Heroku and connected it to the GitHub repository in the Heroku Deploy tab
+3. installed Heroku Postgres to be used as the SQL database for the live website
+3. I then set up automatic deployment of the master branch (waiting for CI to pass), so that the Heroku app was updated with each successful push
+4. the necessary environment variables were set in Heroku's config var settings:
+   
+   |Key                     |
+   |------------------------|
+   |AWS_ACCESS_KEY_ID       |
+   |AWS_SECRET_ACCESS_KEY   |
+   |AWS_STORAGE_BUCKET_NAME |
+   |DATABASE_URL            |
+   |EMAIL_HOST_PASSWORD     |
+   |EMAIL_HOST_USER         |
+   |SECRET_KEY              |
+   |STRIPE_API_KEY          |
+   |STRIPE_PUBLISHABLE      |
+
+5. I installed [Whitenoise](http://whitenoise.evans.io/en/stable/) and referenced it in the `settings.py` for hosting of static files
+6. I set up an [Amazon S3 Bucket](https://aws.amazon.com/s3/) for hosting of images
+7. Finally, I ran `python3 manage.py collectstatic` in order for the static and media files to be available for the live website
+8. The full website complete with static files, images etc was then available at [True Brew](https://truebrew.herokuapp.com/)
 
 ### Cloning and running the project locally
 Follow these steps if you wish to run the project locally:
