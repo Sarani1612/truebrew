@@ -45,7 +45,7 @@ All the following testing has been carried out on smaller screens running both i
 - **Home page:** the home page renders as intended across screen sizes and browsers. On small screens everything is stacked, while on medium and up product cards are displayed in rows of 4.\
 While testing on a smartphone, I noticed that there was no spacing between the two info boxes in the About Us section, which looked a little cramped. To solve this, I added a little margin at the bottom of the first box.
 - **Products page:** the products page renders as intended. On small screens all the product cards are stacked, on medium screens (e.g. iPad) they are shown 2 per row, on large screens (e.g. iPad Pro) there are 3 per row and on extra large screens 4 per row. Images render nicely and all the buttons are working.
-- **Product view:** product and subscription cards render with all the necessary info and images, but on medium sized screens the cards were very narrow and long, and it did not look great. I solved this by changing the product div class to `col-md-8` instead of `col-md-6` so that it is broader on medium screens. For the subscription cards, I changed the layout so that there are only 2 per row on medium screens.
+- **Product view:** product and subscription cards render with all the necessary info and images, but on medium sized screens the cards were very narrow and long, and it did not look great. I solved this by changing the product div Bootstrap class to `col-md-8` instead of `col-md-6` so that it is broader on medium screens. For the subscription cards, I changed the layout so that there are only 2 per row on medium screens.
 - **Contact page:** the contact pages renders as intended. When logged in, the user and email fields are prepopulated as intended. If the 'Send' button is clicked without all the fields filled in, the user is notified of this and the form does not submit.\
 On succesfully sending a message, the page refreshes and a success message is displayed. The message is saved in the ContactMessage model.
 - **Cart:** the cart renders as intended. If there are no items in the cart, a paragraph is displayed to inform the user of this along with a button to the products page.\
@@ -54,10 +54,11 @@ If there are items in the cart, a table is displayed with a row per subscription
 I tested the payments both with correct and incorrect card info and they all behaved correctly. Stripe handles most of the validation, so error messages are shown when entering invalid card numbers, CVV numbers, dates etc.\
 For testing of the payment form, please use the test card numbers available [here](https://stripe.com/docs/testing). Using any of the 3D Secure card numbers will fail. This is expected since the Stripe Charges API does not support card authentication. A flashed message appears to inform the user that the payment did not go through.\
 In case the payment was successful, the user gets redirected to their account page with a message telling them that their order has been placed. 
-- **User registration, login and logout:**
-- **Password reset:** 
-- **User account page:**
-- **Messages:**
+- **User registration, login and logout:** Login and Registration forms render correctly. Error messages are displayed when needed. After registration, the user is automatically logged in with a success message. Logout works as intended; the user gets redirected to the home page with a success message, and the navbar links change.\
+As with the cards on the product page, the authentication forms initially looked very narrow on medium screens. Again, this was remedied by using the Bootstrap `col-md-8` class instead of `col-md-6`.
+- **Password reset:** No issues found with this functionality. All password reset views render correctly and are consistent with the website design. The reset link in the email works and the password gets updated.
+- **User account page:** Renders as intended. Correctly shows the user's address and contact details along with message and order histories. Editing the details works well and so do the accordions.
+- **Messages:** The flash messages render as intended whenever they are needed, and the JavaScript function to remove them after 5 seconds works as well.
 
 ## Automated Testing
 JavaScript code was run through the [JSHint](https://jshint.com/) analysis tool to check for syntax errors.
