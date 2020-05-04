@@ -215,6 +215,7 @@ Each object in this database is a specific subscription related to a specific ob
 - [Whitenoise](http://whitenoise.evans.io/en/stable/) was used to serve static files for the deployed website
 - [Django Storages](https://django-storages.readthedocs.io/en/latest/) and [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) were used to connect Django with S3
 - [Stripe](https://stripe.com/) was used for card payments
+- The HTML Formatter at [FREEFORMATTER.COM](https://www.freeformatter.com/html-formatter.html) was used to beautify my HTML code
 
 ## Testing
 See the separate [TESTING.md](TESTING.md)
