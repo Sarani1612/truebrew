@@ -1,120 +1,126 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block title %}{{user.username}}'s Account{% endblock %}
 
 {% block content %}
 <div class="main-content">
-	<div class="container mt-2">
-		<h1 class="text-center">{{user.username}}'s Account</h1>
-		{% if messages %}
-		{% for message in messages %}
-		<div class="alert alert-{{message.tags}}" role="alert">
-			{{ message }}
-		</div>
-		{% endfor %}
-		{% endif %}
-		<div class="row mb-md-3">
-			<section class="col-md-6">
-				<h2 class="text-center">Your account details</h2>
-				<p>Here you can see and change the info we have on file for you. If you enter an address here, it will be used for faster checkouts.</p>
-				<table class="w-100">
-					<caption>
-						Click on the pen icon to add or edit your info.
-						<a href="{% url 'edit_account' %}"><i class="fas fa-pen"></i></a>
-					</caption>
-					<tr>
-						<td>Username:</td>
-						<td>{{ user.username }}</td>
-					</tr>
-					<tr>
-						<td>Email Address:</td>
-						<td>{{ user.email }}</td>
-					</tr>
-					<tr>
-						<td>Name:</td>
-						<td>{{ user.first_name }} {{ user.last_name }}</td>
-					</tr>
-					<tr>
-						<td>Street Address:</td>
-						<td>{{ user.userinfo.street_address1 }}</td>
-					</tr>
-					<tr>
-						<td>Street Address line 2:</td>
-						<td>{{ user.userinfo.street_address2 }}</td>
-					</tr>
-					<tr>
-						<td>Town/City:</td>
-						<td>{{ user.userinfo.town_or_city }}</td>
-					</tr>
-					<tr>
-						<td>Postcode:</td>
-						<td>{{ user.userinfo.postcode }}</td>
-					</tr>
-					<tr>
-						<td>County:</td>
-						<td>{{ user.userinfo.county }}</td>
-					</tr>
-					<tr>
-						<td>Country:</td>
-						<td>{{ user.userinfo.country }}</td>
-					</tr>
-					<tr>
-						<td>Phone Number:</td>
-						<td>{{ user.userinfo.phone_number}}</td>
-					</tr>
-				</table>
-			</section>
-		</div>
-        <hr class="d-none d-md-block">
-		<div class="row">
-			<section class="col-md-6">
-                <div class="section-wrapper">
-                    <h2>Message History</h2>
-                    {% if emails %}
-                    <p>See messages you've sent to us using the contact form.</p>
-                    {% endif %}
-                    <div class="messages-wrapper">
-                        {% for email in emails %}
-                        <div class="accordion-heading">
-                        {{ email.date_sent }} - {{ email.title }}
-                        </div>
-                        <div class="accordion-body">
-                        <p>{{ email.message_body | linebreaksbr }}</p>
-                        </div>
-                        {% empty %}
-                        <p>You haven't sent us any messages yet, but we'd love to hear from you!</p>
-                        {% endfor %}
-                    </div>
-                </div>
-			</section>
-            <section class="col-md-6">
-                <div class="section-wrapper">
-                    <h2 class="text-center">Order History</h2>
-                    {% if orders %}
-                    <p>See orders you've made previously.</p>
-                    {% endif %}
-                    <div class="messages-wrapper">
-                        {% for order in orders %}
-                        <div class="accordion-heading">
-                            {{ order.order.date }} - Subtotal: €{{order.total}}
-                        </div>
-                        <div class="accordion-body">
-                            {% for item in order.items %}
-                            <p>
-                            {{ item.item.subscription.frequency }} -
-                            {{ item.item.subscription.product.category }} - 
-                            Quantity: {{ item.item.quantity }} - 
-                            Total: €{{ item.item_total }}
-                            </p>
-                            {% endfor %}
-                        </div>
-                        {% empty %}
-                        <p>You don't have any orders yet.</p>
-                        {% endfor %}
-                    </div>
-                </div>    
-			</section>
-		</div>
-	</div>
+  <div class="container mt-2">
+    <h1 class="text-center">{{user.username}}'s Account</h1>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="row mb-md-3">
+      <!-- Account info w address and contact details -->
+      <section class="col-md-6">
+        <h2 class="text-center">Your account details</h2>
+        <p>Here you can see and change the info we have on file for you. If you enter an address here, it will be used for faster checkouts.</p>
+        <table class="w-100">
+          <caption>
+            Click on the pen icon to add or edit your info.
+            <a href="{% url 'edit_account' %}"><i class="fas fa-pen"></i></a>
+          </caption>
+          <tr>
+            <td>Username:</td>
+            <td>{{ user.username }}</td>
+          </tr>
+          <tr>
+            <td>Email Address:</td>
+            <td>{{ user.email }}</td>
+          </tr>
+          <tr>
+            <td>Name:</td>
+            <td>{{ user.first_name }} {{ user.last_name }}</td>
+          </tr>
+          <tr>
+            <td>Street Address:</td>
+            <td>{{ user.userinfo.street_address1 }}</td>
+          </tr>
+          <tr>
+            <td>Street Address line 2:</td>
+            <td>{{ user.userinfo.street_address2 }}</td>
+          </tr>
+          <tr>
+            <td>Town/City:</td>
+            <td>{{ user.userinfo.town_or_city }}</td>
+          </tr>
+          <tr>
+            <td>Postcode:</td>
+            <td>{{ user.userinfo.postcode }}</td>
+          </tr>
+          <tr>
+            <td>County:</td>
+            <td>{{ user.userinfo.county }}</td>
+          </tr>
+          <tr>
+            <td>Country:</td>
+            <td>{{ user.userinfo.country }}</td>
+          </tr>
+          <tr>
+            <td>Phone Number:</td>
+            <td>{{ user.userinfo.phone_number}}</td>
+          </tr>
+        </table>
+      </section>
+    </div>
+    <hr class="d-none d-md-block">
+    <div class="row">
+    
+      <!-- Messaging history -->
+      <section class="col-md-6">
+        <div class="section-wrapper">
+          <h2>Message History</h2>
+          {% if emails %}
+          <p>See messages you've sent to us using the contact form.</p>
+          {% endif %}
+          <div class="messages-wrapper">
+            {% for email in emails %}
+            <div class="accordion-heading">
+              {{ email.date_sent }} - {{ email.title }}
+            </div>
+            <div class="accordion-body">
+              <p>{{ email.message_body | linebreaksbr }}</p>
+            </div>
+            {% empty %}
+            <p>You haven't sent us any messages yet, but we'd love to hear from you!</p>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <!-- Order history -->
+      <section class="col-md-6">
+        <div class="section-wrapper">
+          <h2 class="text-center">Order History</h2>
+          {% if orders %}
+          <p>See orders you've made previously.</p>
+          {% endif %}
+          <div class="messages-wrapper">
+            {% for order in orders %}
+            <div class="accordion-heading">
+              {{ order.order.date }} - Subtotal: €{{order.total}}
+            </div>
+            <div class="accordion-body">
+              {% for item in order.items %}
+              <p>
+                {{ item.item.subscription.frequency }} -
+                {{ item.item.subscription.product.category }} - 
+                Quantity: {{ item.item.quantity }} - 
+                Total: €{{ item.item_total }}
+              </p>
+              {% endfor %}
+            </div>
+            {% empty %}
+            <p>You don't have any orders yet.</p>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 </div>
 {% endblock %}

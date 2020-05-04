@@ -5,43 +5,45 @@
 
 {% block content %}
 <div class="main-content login-reg">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8 mx-auto form-wrapper">
-                <h1 class="text-center">Log In</h1>
-                {% if messages %}
-                {% for message in messages %}
-                <div class="alert alert-{{message.tags}}" role="alert">
-                    {{ message }}
-                </div>
-                {% endfor %}
-                {% endif %}
-                <div class="form-div">
-                    {% if user.is_authenticated %}
-                    <p>It looks like you are already logged in.</p>
-                    <p>Please use the links in the menu bar to browse the site.</p>
-                    {% else %}
-                    <p>Log in to view your account details and to go to checkout</p>
-                    <form method="POST">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" class="form-control" name="username">
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="password" class="form-control" name="password">
-                        </div>
-                        <div class="d-flex flex-row">
-                            <p>No account yet? <a href="{% url 'registration' %}" class="green-links">Create one here.</a></p>
-                            <button type="submit" class="btn custom-btn">Login</button>
-                        </div>
-                        <p>Can't remember your password? <a href="{% url 'reset_password' %}" class="green-links">Reset it here.</a></p>
-                    </form>
-                    {% endif %}
-                </div>
-            </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 mx-auto form-wrapper">
+        <h1 class="text-center">Log In</h1>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}}" role="alert">
+          {{ message }}
         </div>
+        {% endfor %}
+        {% endif %}
+        <div class="form-div">
+          <!-- Shown to user if already logged in -->
+          {% if user.is_authenticated %}
+          <p>It looks like you are already logged in.</p>
+          <p>Please use the links in the menu bar to browse the site.</p>
+          {% else %}
+          <!-- Login Form -->
+          <p>Log in to view your account details and to go to checkout</p>
+          <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" class="form-control" name="username" id="username">
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" name="password" id="password">
+            </div>
+            <div class="d-flex flex-row">
+              <p>No account yet? <a href="{% url 'registration' %}" class="green-links">Create one here.</a></p>
+              <button type="submit" class="btn custom-btn">Login</button>
+            </div>
+            <p>Can't remember your password? <a href="{% url 'reset_password' %}" class="green-links">Reset it here.</a></p>
+          </form>
+          {% endif %}
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}
