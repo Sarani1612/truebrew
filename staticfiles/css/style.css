@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda+One&family=Open+Sans:wght@400;600&display=swap');
-
 body {
-    font-family: 'Open Sans', sans-serif;
-    display: -webkit-box;
+	font-family: 'Open Sans', sans-serif;
+	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
 	-webkit-box-orient: vertical;
@@ -12,22 +11,24 @@ body {
 	min-height: 100vh;
 }
 
+
 /* Navigation bar */
+
 .nav-custom {
-    -webkit-box-shadow: 0px 5px 10px 0px rgba(87,55,35,0.5);
-    -moz-box-shadow: 0px 5px 10px 0px rgba(87,55,35,0.5);
-    box-shadow: 0px 5px 10px 0px rgba(87,55,35,0.5);
+	-webkit-box-shadow: 0px 5px 10px 0px rgba(87, 55, 35, 0.5);
+	-moz-box-shadow: 0px 5px 10px 0px rgba(87, 55, 35, 0.5);
+	box-shadow: 0px 5px 10px 0px rgba(87, 55, 35, 0.5);
 }
 
 .navbar-light .navbar-brand {
-    font-family: 'Merienda One', cursive;
-    font-size: 1.5rem;
-    color: #a3c77b;
+	font-family: 'Merienda One', cursive;
+	font-size: 1.5rem;
+	color: #a3c77b;
 }
 
 .navbar-light .navbar-brand:hover,
 table a:hover {
-    color: #88a766;
+	color: #88a766;
 }
 
 .navbar-brand img {
@@ -35,75 +36,86 @@ table a:hover {
 }
 
 .navbar-light .navbar-nav .nav-link {
-	color:#573723;
+	color: #573723;
 	padding: 0.75rem;
 }
 
 .nav-item {
-    border-bottom: 3px solid transparent;
+	border-bottom: 3px solid transparent;
 }
 
 .nav-item:hover {
-    border-bottom: 3px solid #a3c77b;
+	border-bottom: 3px solid #a3c77b;
 }
 
-.nav-link-cart {
-    padding: 0.75rem 0 0;
+.navbar-nav .nav-item .nav-link-cart {
+	padding: 0.75rem 0 0;
 }
 
 .cart-md {
-    font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 .badge-pill {
-    background-color: #a3c77b;
-    color:#573723;
+	background-color: #a3c77b;
+	color: #573723;
 }
 
+
 /* Positions main content in all views */
+
 .main-content {
 	margin-top: 77px;
-    padding: 0 0 0.5rem;
+	padding: 0 0 0.5rem;
 	-webkit-box-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
 }
 
+
 /* Custom styling for alerts and errors */
+
 .alert {
-    width: 80%;
-    margin: auto;
-    text-align: center;
+	width: 80%;
+	margin: auto;
+	text-align: center;
 }
 
 .error-msg {
-    background-color: #f8d7da;
+	background-color: #f8d7da;
 }
+
 
 /* Custom heading styling */
+
 h1 {
-    color: #a3c77b;
-    padding: 10px;
+	color: #a3c77b;
+	padding: 10px;
 }
 
+
 /* Button styling */
+
 .custom-btn {
-    color: #f8f9fa;
-    font-weight: 600;
-    background-color: #a3c77b;
-    margin-left: auto;
+	color: #f8f9fa;
+	font-weight: 600;
+	background-color: #a3c77b;
+	margin-left: auto;
 }
 
 .custom-btn:hover {
-    color: #f8f9fa;
-    background-color: #88a766;
+	color: #f8f9fa;
+	background-color: #88a766;
 }
 
-.info-btn, .info-btn:hover {
-    background-color: #573723;
+.info-btn,
+.info-btn:hover {
+	background-color: #573723;
 }
+
 
 /* Landing page styling */
+
 .landing-page {
 	background-image: url('/static/images/home-img.jpg');
 	background-position: center;
@@ -117,68 +129,74 @@ h1 {
 }
 
 .landing-div {
-    height: 100%;
-    width: 60%;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+	height: 100%;
+	width: 60%;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 .landing-text {
-    flex: 0 0;
-    font-style: italic;
-    font-size: 1.25rem;
-    font-weight: 600;
+	flex: 0 0;
+	font-style: italic;
+	font-size: 1.25rem;
+	font-weight: 600;
 }
 
 .home-sections {
-    margin-bottom: 75px;
+	margin-bottom: 50px;
 }
 
+
 /* Styling for product cards on home page view */
+
 .card-img {
-	width: 100%;
-	height: 13rem;
+	width: 95%;
+	height: 15rem;
 	-o-object-fit: cover;
 	object-fit: cover;
 	margin-bottom: 0.5rem;
 }
 
 .card-div {
-	-webkit-box-shadow: 0px 0px 10px 0px rgba(87,55,35,0.75);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(87,55,35,0.75);
-    box-shadow: 0px 0px 10px 0px rgba(87,55,35,0.75);
-    border-radius: 5px;
-    padding: 5px;
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(87, 55, 35, 0.75);
+	-moz-box-shadow: 0px 0px 10px 0px rgba(87, 55, 35, 0.75);
+	box-shadow: 0px 0px 10px 0px rgba(87, 55, 35, 0.75);
+	border-radius: 5px;
+	padding: 5px;
 	margin: auto;
 }
 
 .card-title {
-    text-align: center;
-    font-weight: 600;
+	text-align: center;
+	font-weight: 600;
 }
 
 .info-box {
-    border: solid 2px #573723;
-    padding: 10px;
+	border: solid 2px #573723;
+	padding: 10px;
 }
 
+
 /* Product View */
+
 .tea-card {
-    padding: 10px;
+	padding: 10px;
 }
 
 .unit-price,
 table a {
-    font-size: 1.5rem;
-    color: #a3c77b;
+	font-size: 1.5rem;
+	color: #a3c77b;
 }
 
+
 /* Background for login and registration pages */
+
 .login-reg {
-    background-image: url('/static/images/log-reg-bg.jpg');
+	background-image: url('/static/images/log-reg-bg.jpg');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -186,71 +204,81 @@ table a {
 	position: relative;
 }
 
+
 /* Form styling */
+
 .form-wrapper {
-    background-color: #f8f9fa;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 700px;
+	background-color: #f8f9fa;
+	padding: 20px;
+	margin: 20px auto;
+	max-width: 700px;
 }
 
 .form-div {
-    max-width: 500px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
+	max-width: 500px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
 }
 
+
 /* Custom styling of links on forms */
+
 .green-links {
-    color: #a3c77b;
-    font-weight: 600;
+	color: #a3c77b;
+	font-weight: 600;
 }
 
 .green-links:hover {
-    color: #88a766;
-    text-decoration: none;
+	color: #88a766;
+	text-decoration: none;
 }
 
+
 /* User account view */
+
 .section-wrapper {
-    padding: 10px;
+	padding: 10px;
 }
 
 .accordion-heading {
-    background-color: rgba(163, 199, 123, 0.5);
-    cursor: pointer;
-    padding: 5px;
-    margin-bottom: 5px;
-    font-weight: 600;
+	background-color: rgba(163, 199, 123, 0.5);
+	cursor: pointer;
+	padding: 5px;
+	margin-bottom: 5px;
+	font-weight: 600;
 }
 
 .accordion-heading:hover {
-    background-color: rgba(163, 199, 123, 0.75);
+	background-color: rgba(163, 199, 123, 0.75);
 }
 
 .accordion-body {
-    display: none;
+	display: none;
 }
+
 
 /* Table styling for accounts and cart apps */
 
-th, td {
-  border: 1px solid #573723;
+th,
+td {
+	border: 1px solid #573723;
 }
 
-td, th {
-    padding: 5px;
+td,
+th {
+	padding: 5px;
 }
 
 .no-border {
-    border: none;
+	border: none;
 }
 
 caption {
-    caption-side: top;
-    padding: 0;
+	caption-side: top;
+	padding: 0;
 }
+
 
 /* Footer */
 
@@ -259,7 +287,7 @@ footer {
 	color: #573723;
 	min-height: 60px;
 	padding: 2%;
-    text-align: center;
+	text-align: center;
 }
 
 footer p {
@@ -273,7 +301,7 @@ footer p {
 footer i {
 	padding: 0 5px;
 	font-size: 2rem;
-    color: #573723;
+	color: #573723;
 	-webkit-transition: all 0.5s ease-out;
 	-o-transition: all 0.5s ease-out;
 	transition: all 0.5s ease-out;
@@ -285,35 +313,35 @@ footer i:hover {
 	transform: scale(1.5);
 }
 
+
 /* Media Queries */
 
 @media only screen and (max-width: 767px) {
-    .navbar-icons .nav-item .nav-fa-link {
-        padding: 0.50rem;
-    }
-
-    .nav-fa-icon {
-        font-size: 1.5rem;
-    }
+	.navbar-icons .nav-item .nav-fa-link {
+		padding: 0.50rem;
+	}
+	.nav-fa-icon {
+		font-size: 1.5rem;
+	}
 }
 
 @media only screen and (min-width: 768px) {
-    .tea-card {
-        padding: 25px;
-    }
-    .navbar-light .navbar-brand {
-    font-size: 2rem;
-    }
+	.tea-card {
+		padding: 25px;
+	}
+	.navbar-light .navbar-brand {
+		font-size: 2rem;
+	}
 }
 
 @media only screen and (max-width: 991px) {
-    .navbar-links-custom {
-        font-size: 0.75rem;
-    }
+	.navbar-links-custom {
+		font-size: 0.75rem;
+	}
 }
 
 @media only screen and (min-width: 992px) {
-    .forms {
-        padding: 50px;
-    }
+	.forms {
+		padding: 50px;
+	}
 }
