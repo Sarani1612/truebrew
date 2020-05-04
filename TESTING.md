@@ -94,6 +94,7 @@ The issue was solved by using the `get_or_create()` method instead of just `get(
 ### Unresolved
 1. For some reason, the emails sent via the contact form to the business mailbox have the business email address as both to address ans from address. This would definitely be a problem in a real life situation since the business would have no way of knowing who the email was sent from and no way of getting in touch with the sender.\
 I have gone over the Django documentation for sending emails thoroughly, but at this stage I cannot point to the flaw in my code that is producing this behaviour, as it appears to be identical to what is in the documentation.
+2. Running the registration page through the HTML validator returns the error `No p element in scope but a p end tag seen.` However, this comes from the build in Django form and I was therefore not able to resolve the issue.
 
 ## Additional Testing
 In addition to the testing described above, I asked my partner and my sister to test the website for me. I wrote them a use case to ensure they tested as much of the site's functionality as possible. They both reported back that they did not find any bugs.
