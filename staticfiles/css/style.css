@@ -59,6 +59,7 @@ table a:hover {
 .badge-pill {
 	background-color: #a3c77b;
 	color: #573723;
+    margin-left: -10px;
 }
 
 
