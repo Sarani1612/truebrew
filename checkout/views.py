@@ -63,12 +63,21 @@ def checkout(request):
             messages.error(request, "We were unable to take a payment with that card")
 
     else:
+        '''
+        When page loads, prepopulate form with any user info available.
+        If there is no first or last name stored for the user, full_name is empty to avoid the form loading with a space in the input field
+        '''
+        
+        if request.user.first_name and request.user.last_name:
+            full_name = request.user.first_name + ' ' + request.user.last_name
+        else:
+            full_name = ''
 
         try:
             UserInfo.objects.get(user=request.user)
             initial = {
-                'user': request.user.id,
-                'full_name': request.user.first_name + ' ' + request.user.last_name,
+                'user': request.user,
+                'full_name': full_name,
                 'street_address1': request.user.userinfo.street_address1,
                 'street_address2': request.user.userinfo.street_address2,
                 'town_or_city': request.user.userinfo.town_or_city,
@@ -81,8 +90,11 @@ def checkout(request):
 
         except UserInfo.DoesNotExist:
             initial = {
-                'user': request.user.id
+                'user': request.user,
+                'full_name': full_name,
+                'email': request.user.email
             }
+
         order_form = OrderForm(request.POST or None, initial=initial)
     context = {
         'order_form': order_form,
