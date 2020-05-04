@@ -14,7 +14,7 @@ $( document ).ready(function() {
         } else {
             accordion.style.display = 'block';
         }
-    };
+    }
 
     // Removes alert messages after 5 seconds
     setTimeout(function () {
@@ -22,4 +22,3 @@ $( document ).ready(function() {
         );
 
 });
-
