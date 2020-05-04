@@ -155,26 +155,19 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 
-# STATICFILES_LOCATION = 'static'
 MEDIAFILES_LOCATION = 'media'
-
-# STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-
-# STATIC_URL = STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN,STATICFILES_LOCATION)
 MEDIA_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
-
+# Messages Framework
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
-
 # Stripe
 STRIPE_PUBLISHABLE = os.environ.get('STRIPE_PUBLISHABLE')
 STRIPE_API_KEY = os.environ.get('STRIPE_API_KEY')
-
 
 # Email settings for contact form and resetting passwords
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -188,8 +181,7 @@ EMAIL_USE_SSL = True
 # Not currently in use
 # EMAILJS_USER = os.environ.get('EMAILJS_USER')
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static")
-# ]
+# STATICFILES_LOCATION = 'static'
+# STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+# STATIC_URL = STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN,STATICFILES_LOCATION)
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
