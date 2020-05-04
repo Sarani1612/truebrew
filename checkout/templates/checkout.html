@@ -6,71 +6,70 @@
 
 {% block content %}
 <div class="main-content">
-    <div class="container mt-2">
-        <h1 class="text-center">Checkout</h1>
-        {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-{{message.tags}}" role="alert">
-            {{ message }}
-            </div>
-            {% endfor %}
-        {% endif %}
-        <div class="row">
-            <section class="col-lg-6 mb-2">
-                <h2 class="text-center">Order Summary</h2>
-                <table class="w-100">
-                    <tr>
-                        <th>Subscription</th>
-                        <th>price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                    </tr>
-                    {% for item in cart_items %}
-                    <tr>
-                        <td>{{ item.subscription.frequency }} - {{ item.subscription.product}}</td>
-                        <td>€{{ item.subscription.unit_price }}</td>
-                        <td>{{ item.quantity }}</td>
-                        <td>€{{ item.subscription_total }}</td>
-                    </tr>
-                    {% endfor %}
-                    <tr>
-                        <td>Shipping - <i class="fas fa-truck"></i></td>
-                        <td></td>
-                        <td></td>
-                        <td>FREE</td>
-                    </tr>
-                    <tr class="font-weight-bold">
-                        <td colspan="3">SUBTOTAL</td>
-                        <td>€{{ subtotal }}</td>
-                    </tr>
-                </table>
-            </section>
-            <section class="form-group col-lg-6">
-                <h2 class="text-center">Payment Details</h2>
-                <form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}" class="d-flex flex-column">
-                    {% csrf_token %}
-                    {{ order_form | as_bootstrap }}
-                    <label for="card-element">
-                    Credit or debit card
-                    </label>
-                    <div id="card-element" class="MyCardElement">
-                    </div>
-
-                    <div id="card-errors" role="alert"></div>
-                    
-                    <input type="submit" class="btn custom-btn mt-2" name="commit" value="Submit Payment">
-                </form>
-            </section>
-        </div>
+  <div class="container mt-2">
+    <h1 class="text-center">Checkout</h1>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}" role="alert">
+      {{ message }}
     </div>
+    {% endfor %}
+    {% endif %}
+    <div class="row">
+      <!-- Order summary table -->
+      <section class="col-lg-6 mb-2">
+        <h2 class="text-center">Order Summary</h2>
+        <table class="w-100">
+          <tr>
+            <th>Subscription</th>
+            <th>price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+          {% for item in cart_items %}
+          <tr>
+            <td>{{ item.subscription.frequency }} - {{ item.subscription.product}}</td>
+            <td>€{{ item.subscription.unit_price }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>€{{ item.subscription_total }}</td>
+          </tr>
+          {% endfor %}
+          <tr>
+            <td>Shipping - <i class="fas fa-truck"></i></td>
+            <td></td>
+            <td></td>
+            <td>FREE</td>
+          </tr>
+          <tr class="font-weight-bold">
+            <td colspan="3">SUBTOTAL</td>
+            <td>€{{ subtotal }}</td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- Payment Form -->
+      <section class="form-group col-lg-6">
+        <h2 class="text-center">Payment Details</h2>
+        <form method="POST" id="payment-form" action="{% url 'checkout' %}" class="d-flex flex-column">
+          {% csrf_token %}
+          {{ order_form | as_bootstrap }}
+          <p>Credit or debit card</p>
+          <div id="card-element" class="MyCardElement">
+          </div>
+          <div id="card-errors" role="alert"></div>
+          <input type="submit" class="btn custom-btn mt-2" name="commit" value="Submit Payment">
+        </form>
+      </section>
+    </div>
+  </div>
 </div>
 {% endblock %}
 
 <!-- Scripts for Stripe -->
 {% block stripe_js %}
-<script type="text/javascript">
-        const publishable = '{{ stripe_publishable }}'
-    </script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+<script>
+  const publishable = '{{ stripe_publishable }}'
+</script>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
