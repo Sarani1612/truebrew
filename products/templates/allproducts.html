@@ -16,7 +16,7 @@
           <img src="{{ MEDIA_URL }}{{ product.image }}" class="card-img mx-auto" alt="{{ product.category }}">
           <p>{{ product.short_description }}</p>
           <hr>
-          <div class="d-flex flex-row">
+          <div class="d-flex flex-row p-2">
             <a href="{% url 'view_product' product.id %}"
               class="btn custom-btn info-btn mx-auto">Subscribe</a>
           </div>
