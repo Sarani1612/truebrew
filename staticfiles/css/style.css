@@ -101,7 +101,6 @@ h1 {
 	color: #f8f9fa;
 	font-weight: 600;
 	background-color: #a3c77b;
-	margin-left: auto;
 }
 
 .custom-btn:hover {
@@ -178,6 +177,10 @@ h1 {
 .info-box {
 	border: solid 2px #573723;
 	padding: 10px;
+}
+
+hr {
+    margin: 0.5rem 0;
 }
 
 
