@@ -1,73 +1,75 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block title %}Cart{% endblock %}
 
 {% block content %}
-
 <div class="main-content">
-	<div class="container mt-2">
-		<h1 class="text-center">Cart</h1>
-        {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-{{message.tags}} mb-1" role="alert">
-            {{ message }}
-            </div>
-            {% endfor %}
-        {% endif %}
-        <div class="row">
-            {% if cart_items %}
-            <div class="col-12">
-                <table class="w-100">
-                    <tr>
-                        <th>Subscription</th>
-                        <th>price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                    </tr>
-                    {% for item in cart_items %}
-                    <tr>
-                        <td>{{ item.subscription.frequency }} - {{ item.subscription.product}}</td>
-                        <td>€{{ item.subscription.unit_price }}</td>
-                        <td>
-                            <form class="form-inline" method="POST" action="{% url 'adjust_quantity' item.id %}">
-                                {% csrf_token %}
-                                <div class="input-group input-group-sm">
-                                    <input name="quantity" type="number" min="0" max="999" class="form-control" value="{{ item.quantity }}">
-                                    <button class="btn btn-sm custom-btn info-btn" type="submit">Amend</button>
-                                </div>
-                            </form>
-                        </td>
-                        <td>€{{ item.subscription_total }}</td>
-                        <td class="no-border"> <a href="{% url 'delete_subscription' item.id %}"><i class="fas fa-trash-alt"></i></a></td>
-                    </tr>
-                    {% endfor %}
-                    <tr>
-                        <td>Shipping - <i class="fas fa-truck"></i></td>
-                        <td></td>
-                        <td></td>
-                        <td>FREE</td>
-                    </tr>
-                    <tr class="font-weight-bold">
-                        <td colspan="3">SUBTOTAL</td>
-                        <td>€{{ subtotal }}</td>
-                    </tr>
-                    <tr>
-                        <td class="no-border" colspan="2">
-                            <a href="{% url 'all_products' %}" class="btn custom-btn" role="button">Back to shopping</a>
-                        </td>
-                        <td class="no-border text-right" colspan="2">
-                            <a href="{% url 'checkout' %}" class="btn custom-btn" role="button">Checkout</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            {% else %}
-            <div class="col-md-6 mx-auto">
-                <p>There are no items in your cart yet. Have a look at our products:</p>
-                <a href="{% url 'all_products' %}" class="btn custom-btn" role="button">Go to products</a>
-            </div>
-            {% endif %}
-        </div>
-	</div>
+  <div class="container mt-2">
+    <h1 class="text-center">Cart</h1>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} mb-1" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="row">
+      <!-- Table with cart items, prices, quantities etc -->
+      {% if cart_items %}
+      <div class="col-12">
+        <table class="w-100">
+          <tr>
+            <th>Subscription</th>
+            <th>price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+          {% for item in cart_items %}
+          <tr>
+            <td>{{ item.subscription.frequency }} - {{ item.subscription.product}}</td>
+            <td>€{{ item.subscription.unit_price }}</td>
+            <td>
+              <form class="form-inline" method="POST" action="{% url 'adjust_quantity' item.id %}">
+                {% csrf_token %}
+                <div class="input-group input-group-sm">
+                  <input name="quantity" type="number" min="0" max="999" class="form-control" value="{{ item.quantity }}">
+                  <button class="btn btn-sm custom-btn info-btn" type="submit">Amend</button>
+                </div>
+              </form>
+            </td>
+            <td>€{{ item.subscription_total }}</td>
+            <td class="no-border"> <a href="{% url 'delete_subscription' item.id %}"><i class="fas fa-trash-alt"></i></a></td>
+          </tr>
+          {% endfor %}
+          <tr>
+            <td>Shipping - <i class="fas fa-truck"></i></td>
+            <td></td>
+            <td></td>
+            <td>FREE</td>
+          </tr>
+          <tr class="font-weight-bold">
+            <td colspan="3">SUBTOTAL</td>
+            <td>€{{ subtotal }}</td>
+          </tr>
+          <tr>
+            <td class="no-border" colspan="2">
+              <a href="{% url 'all_products' %}" class="btn custom-btn" role="button">Back to shopping</a>
+            </td>
+            <td class="no-border text-right" colspan="2">
+              <a href="{% url 'checkout' %}" class="btn custom-btn" role="button">Checkout</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      {% else %}
+      <!-- Info shown when the cart is empty -->
+      <div class="col-md-6 mx-auto">
+        <p>There are no items in your cart yet. Have a look at our products:</p>
+        <a href="{% url 'all_products' %}" class="btn custom-btn" role="button">Go to products</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
 </div>
 {% endblock %}
