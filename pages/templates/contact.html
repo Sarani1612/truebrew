@@ -17,6 +17,7 @@
         </div>
         {% endfor %}
         {% endif %}
+        <!-- contact form with prepopulated email field if user is logged in -->
         <form method="POST" action="{% url 'contact' %}" id="contact-form" class="d-flex flex-column">
           {% csrf_token %}
           {{ contact_form | as_bootstrap }}
