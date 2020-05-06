@@ -55,7 +55,7 @@ def user_registration(request):
 @login_required
 def user_account(request):
     '''Renders the user's account with address, contact and order details'''
-    user_orders = Order.objects.filter(user=request.user).order_by('date')
+    user_orders = Order.objects.filter(user=request.user).order_by('-date')
     orders = []
     for order in user_orders:
         line_items = OrderLineItem.objects.filter(order=order)
@@ -68,7 +68,7 @@ def user_account(request):
             total += item_total
         orders.append({'order': order, 'items': items, 'total': total})
 
-    user_emails = ContactMessage.objects.filter(user=request.user).order_by('date_sent')
+    user_emails = ContactMessage.objects.filter(user=request.user).order_by('-date_sent')
 
     context = {
         'orders': orders,

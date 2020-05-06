@@ -11,6 +11,7 @@
       <div class="col-md-8 mx-auto form-wrapper">
         <h1 class="text-center">Update Account Info</h1>
         <div class="form-div">
+          <!-- Form for user to save or edit their account info -->
           <form method="POST" action="{% url 'edit_account' %}" class="d-flex flex-column">
             {% csrf_token %}
             {{ user_form | as_bootstrap }}
