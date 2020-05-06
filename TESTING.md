@@ -90,6 +90,15 @@ As I do not have much experience with writing automated tests, they are fairly l
     I solved the issue by removing `int:` from the paths in the urls file so that they read `path('adjust/<id>/', ...)` instead of `path('adjust/<int:id>/, ...)'`.
 2. On the account page when clicking the icon to add or edit a user's address details, the DoesNotExist exception was raised. This was because no object had yet been created for that particular user in the UserInfo model where those details are stored.\
 The issue was solved by using the `get_or_create()` method instead of just `get()`. This way, an object is created when the user clicks the edit icon for the first time, allowing them to add their address details.
+3. I noticed that the order form sometimes rendered without placeholder text in the Full Name input field. I then realised that, due to my code being `'full_name': request.user.first_name + ' ' + request.user.last_name`, the input field actually rendered with just a space in it in cases where there was no `first_name` or `last_name` stored for the user.\
+I solved the issue with this if-else statement:
+    ```python
+    if request.user.first_name and request.user.last_name:
+                full_name = request.user.first_name + ' ' + request.user.last_name
+            else:
+                full_name = ''
+    ```
+    Now the input field is empty whenever a user does not have both a first and last name stored, and therefore the placeholder text shows up.
 
 ### Unresolved
 1. For some reason, the emails sent via the contact form to the business mailbox have the business email address as both to address ans from address. This would definitely be a problem in a real life situation since the business would have no way of knowing who the email was sent from and no way of getting in touch with the sender.\
